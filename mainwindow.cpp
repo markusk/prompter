@@ -5,6 +5,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // for the pushButton
+    connect(this, SIGNAL(test()), this, SLOT(test()));
+
+
     createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "", "TestBild.png", Qt::green);
 
     ui->setupUi(this);
@@ -19,3 +23,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::test()
+{
+
+}

@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QImage>
 #include <QDir>
+#include <QObject> // for connecting signals and slots
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +19,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
+    void test();
 
 private:
     Ui::MainWindow *ui;
