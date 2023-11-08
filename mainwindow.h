@@ -20,14 +20,18 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    int width = 1024;
+    int height = 768;
+    int offset = 25;
+    int w = 400;
+    int h = 200;
+
+    QPixmap pix;
+
+
     bool createImage(QString text="Leer", QString path="./", QString imageName="TextImage.png", QColor aColor=Qt::red)
     {
-        int width = 1024;
-        int height = 768;
-        int offset = 25;
-        int w = 400;
-        int h = 200;
-
         QImage image(QSize(width,height),QImage::Format_RGB32);
 
         QPainter painter(&image);
@@ -39,13 +43,18 @@ private:
         painter.fillRect(QRect(aRect),Qt::white);
         painter.setPen(QPen(Qt::black));
         painter.setFont(QFont( "Courier", 20) );
+
         // add text to image
         painter.drawText(QRect(aRectOffset),text);
 
         // mirror image horicontally
         image = image.mirrored(true, false);
 
+        // assign image to Pixmap 'pix'
+        pix = QPixmap(width, height);
+        pix.fromImage(image);
 
+        // save image to disk
         QDir aDir = QDir(path);
         if ( aDir.mkpath(path) )
             return image.save(path + "/" + imageName);
