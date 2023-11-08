@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPainter>
+#include <QImage>
+#include <QDir>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +20,30 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    bool createImage(QString text="Leer", QString path="./", QString imageName="TextImage.png", QColor aColor=Qt::red)
+    {
+        int width = 1024;
+        int height = 768;
+        int offset = 25;
+        int w = 400;
+        int h = 200;
+
+        QImage image(QSize(width,height),QImage::Format_RGB32);
+        QPainter painter(&image);
+        painter.setBrush(QBrush(aColor));
+        painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
+        qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
+        QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
+        QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
+        painter.fillRect(QRect(aRect),Qt::white);
+        painter.setPen(QPen(Qt::black));
+        painter.setFont(QFont( "Courier", 20) );
+        painter.drawText(QRect(aRectOffset),text);
+        QDir aDir = QDir(path);
+        if ( aDir.mkpath(path) )
+            return image.save(path + "/" + imageName);
+        else
+            return image.save(imageName);
+    }
 };
 #endif // MAINWINDOW_H
