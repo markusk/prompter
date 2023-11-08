@@ -29,6 +29,7 @@ private:
         int h = 200;
 
         QImage image(QSize(width,height),QImage::Format_RGB32);
+
         QPainter painter(&image);
         painter.setBrush(QBrush(aColor));
         painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
@@ -38,7 +39,13 @@ private:
         painter.fillRect(QRect(aRect),Qt::white);
         painter.setPen(QPen(Qt::black));
         painter.setFont(QFont( "Courier", 20) );
+        // add text to image
         painter.drawText(QRect(aRectOffset),text);
+
+        // mirror image horicontally
+        image = image.mirrored(true, false);
+
+
         QDir aDir = QDir(path);
         if ( aDir.mkpath(path) )
             return image.save(path + "/" + imageName);
