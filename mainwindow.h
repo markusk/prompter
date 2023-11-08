@@ -37,7 +37,7 @@ private:
         QPainter painter(&image);
         painter.setBrush(QBrush(aColor));
         painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
-        qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
+        // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
         QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
         QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
         painter.fillRect(QRect(aRect),Qt::white);
@@ -54,12 +54,12 @@ private:
         pix = QPixmap(width, height);
         pix.fromImage(image);
 
-        // save image to disk
-        QDir aDir = QDir(path);
-        if ( aDir.mkpath(path) )
-            return image.save(path + "/" + imageName);
-        else
-            return image.save(imageName);
+//        // save image to disk
+//        QDir aDir = QDir(path);
+//        if ( aDir.mkpath(path) )
+//            return image.save(path + "/" + imageName);
+//        else
+//            return image.save(imageName);
     }
 };
 #endif // MAINWINDOW_H
