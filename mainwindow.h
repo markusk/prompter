@@ -54,12 +54,12 @@ private:
         pix = QPixmap(width, height);
         pix.fromImage(image);
 
-//        // save image to disk
-//        QDir aDir = QDir(path);
-//        if ( aDir.mkpath(path) )
-//            return image.save(path + "/" + imageName);
-//        else
-//            return image.save(imageName);
+        // save image to disk
+        QDir aDir = QDir(path);
+        if ( aDir.mkpath(path) )
+            return image.save(path + "/" + imageName);
+        else
+            return image.save(imageName);
     }
 };
 #endif // MAINWINDOW_H

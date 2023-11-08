@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     // display image/pixmap in GUI
     ui->labelImage->setStyleSheet("border-image:url(:/2.png);");
     ui->labelImage->setPixmap(pix);
-
 }
 
 MainWindow::~MainWindow()
