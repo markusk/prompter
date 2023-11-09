@@ -18,6 +18,7 @@ MainWindow::~MainWindow()
 
 bool MainWindow::createImage(QString text, QString path, QString imageName, QColor aColor)
 {
+/*
     // org: QImage image(QSize(width,height),QImage::Format_RGB32);
     image = QImage(width, height, QImage::Format_RGB32);
 
@@ -42,7 +43,7 @@ bool MainWindow::createImage(QString text, QString path, QString imageName, QCol
     // assign image to Pixmap 'pix'
     pix = QPixmap(width, height);
     pix.fromImage(image);
-
+*/
 //    // save image to disk
 //    QDir aDir = QDir(path);
 //    if ( aDir.mkpath(path) )
