@@ -32,8 +32,8 @@ private:
     int w = 400;
     int h = 200;
 
-    QImage image;
-    QPainter painter;
+//    QImage image;
+//    QPainter painter;
     QPixmap pix;
 
     //

@@ -18,12 +18,11 @@ MainWindow::~MainWindow()
 
 bool MainWindow::createImage(QString text, QString path, QString imageName, QColor aColor)
 {
-/*
-    // org: QImage image(QSize(width,height),QImage::Format_RGB32);
-    image = QImage(width, height, QImage::Format_RGB32);
+    QImage image(QSize(width,height),QImage::Format_RGB32);
+    // neu: image = QImage(width, height, QImage::Format_RGB32);
 
-    // org: QPainter painter(&image);
-    painter = QPainter(image);
+    QPainter painter(&image);
+    // neu: painter = QPainter(image);
 
     painter.setBrush(QBrush(aColor));
     painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
@@ -43,7 +42,7 @@ bool MainWindow::createImage(QString text, QString path, QString imageName, QCol
     // assign image to Pixmap 'pix'
     pix = QPixmap(width, height);
     pix.fromImage(image);
-*/
+
 //    // save image to disk
 //    QDir aDir = QDir(path);
 //    if ( aDir.mkpath(path) )
@@ -55,9 +54,10 @@ bool MainWindow::createImage(QString text, QString path, QString imageName, QCol
 
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug("pushButton clicked");
+    //qDebug("pushButton clicked");
     createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "./", "TestBild.png", Qt::green);
-    // display image/pixmap in GUI
-    ui->labelImage->setStyleSheet("border-image:url(:/2.png);");
+
+    // display image/pixmap in QLabel
+    //ui->labelImage->setStyleSheet("border-image:url(:/2.png);");
     ui->labelImage->setPixmap(pix);
 }
