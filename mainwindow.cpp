@@ -18,9 +18,12 @@ MainWindow::~MainWindow()
 
 bool MainWindow::createImage(QString text, QString path, QString imageName, QColor aColor)
 {
-    QImage image(QSize(width,height),QImage::Format_RGB32);
+    // org: QImage image(QSize(width,height),QImage::Format_RGB32);
+    image = QImage(width, height, QImage::Format_RGB32);
 
-    QPainter painter(&image);
+    // org: QPainter painter(&image);
+    painter = QPainter(image);
+
     painter.setBrush(QBrush(aColor));
     painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
     // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
@@ -40,12 +43,12 @@ bool MainWindow::createImage(QString text, QString path, QString imageName, QCol
     pix = QPixmap(width, height);
     pix.fromImage(image);
 
-    // save image to disk
-    QDir aDir = QDir(path);
-    if ( aDir.mkpath(path) )
-        return image.save(path + "/" + imageName);
-    else
-        return image.save(imageName);
+//    // save image to disk
+//    QDir aDir = QDir(path);
+//    if ( aDir.mkpath(path) )
+//        return image.save(path + "/" + imageName);
+//    else
+//        return image.save(imageName);
 }
 
 
