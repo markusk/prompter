@@ -34,37 +34,7 @@ private:
 
     QPixmap pix;
 
-
-    bool createImage(QString text="Leer", QString path="./", QString imageName="TextImage.png", QColor aColor=Qt::red)
-    {
-        QImage image(QSize(width,height),QImage::Format_RGB32);
-
-        QPainter painter(&image);
-        painter.setBrush(QBrush(aColor));
-        painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
-        // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
-        QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
-        QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
-        painter.fillRect(QRect(aRect),Qt::white);
-        painter.setPen(QPen(Qt::black));
-        painter.setFont(QFont( "Courier", 20) );
-
-        // add text to image
-        painter.drawText(QRect(aRectOffset),text);
-
-        // mirror image horicontally
-        image = image.mirrored(true, false);
-
-        // assign image to Pixmap 'pix'
-        pix = QPixmap(width, height);
-        pix.fromImage(image);
-
-        // save image to disk
-        QDir aDir = QDir(path);
-        if ( aDir.mkpath(path) )
-            return image.save(path + "/" + imageName);
-        else
-            return image.save(imageName);
-    }
+    //
+    bool createImage(QString text, QString path, QString imageName, QColor aColor);
 };
 #endif // MAINWINDOW_H
