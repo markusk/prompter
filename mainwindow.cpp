@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     // for the pushButton
-    connect(this, ui->pushButton->clicked(bool), this, SLOT(test()));
+    //connect(this, ui->pushButton->clicked(), this, SLOT(test()));
 
 
     createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "", "TestBild.png", Qt::green);

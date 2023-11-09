@@ -1,6 +1,8 @@
-RESOURCES   = mainwindow.qrc
-SOURCES     = main.cpp
 QT += widgets uitools
 
-# target.path = $$[QT_INSTALL_EXAMPLES]/designer/calculatorbuilder
+FORMS       = mainwindow.ui
+HEADERS     = mainwindow.h
+RESOURCES   = mainwindow.qrc
+SOURCES     = mainwindow.cpp \
+              main.cpp
 INSTALLS += target
