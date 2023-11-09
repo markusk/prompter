@@ -1,14 +1,11 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    // for the pushButton
-    //connect(this, ui->pushButton->clicked(), this, SLOT(test()));
-
-
     createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "", "TestBild.png", Qt::green);
 
     ui->setupUi(this);
@@ -18,12 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->labelImage->setPixmap(pix);
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-void MainWindow::test()
-{
 
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug("pushButton clicked");
 }
