@@ -42,6 +42,13 @@ void MainWindow::paint(QPainter *painter, QPaintEvent *event, int elapsed)
 }
 
 
+void MainWindow::animate()
+{
+    //elapsed = (elapsed + qobject_cast<QTimer*>(sender())->interval()) % 1000;
+    update();
+}
+
+
 bool MainWindow::createImage(QString text, QString path, QString imageName, QColor aColor)
 {
     QImage image(QSize(width,height),QImage::Format_RGB32);
