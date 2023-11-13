@@ -6,6 +6,7 @@
 #include <QImage>
 #include <QDir>
 #include <QObject> // for connecting signals and slots
+#include <QTimer>  // for scroll animation
 
 #include <QBrush>
 #include <QFont>
@@ -44,6 +45,9 @@ private:
     //QImage *image;
     //QPainter *painter;
     QPixmap pix;
+
+    // timer for scroll animation
+    QTimer *timer;
 
     //
     bool createImage(QString text, QString path, QString imageName, QColor aColor);

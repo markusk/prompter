@@ -6,6 +6,13 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // create scroll timer
+    timer = new QTimer(this);
+
+    connect(timer, SIGNAL(timeout()), this, SLOT(animate()) );
+    //QObject::connect(scrollTimer, &QTimer::timeout, formWidget, scrollPrompterText);
+
+    // start GUI
     ui->setupUi(this);
 }
 
@@ -93,4 +100,8 @@ void MainWindow::on_pushButton_clicked()
 {
     //qDebug("pushButton clicked");
     createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "./", "TestBild.png", Qt::green);
+
+    // start scroll timer
+    // timer->start(50);
+
 }
