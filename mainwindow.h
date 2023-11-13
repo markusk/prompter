@@ -25,7 +25,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void paint(QPainter *painter, QPaintEvent *event, int elapsed);
+//    void paint(QPainter *painter, QPaintEvent *event, int elapsed);
     void paintEvent(QPaintEvent *event);
 
 private slots:
