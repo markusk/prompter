@@ -45,6 +45,12 @@ private:
     //QImage *image;
     //QPainter *painter;
     QPixmap pix;
+    // new for OpenGL drawing
+    QBrush background;
+    QBrush circleBrush;
+    QFont textFont;
+    QPen circlePen;
+    QPen textPen;
 
     // timer for scroll animation
     QTimer *timer;

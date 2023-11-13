@@ -12,6 +12,18 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(animate()) );
     //QObject::connect(scrollTimer, &QTimer::timeout, formWidget, scrollPrompterText);
 
+    QLinearGradient gradient(QPointF(50, -20), QPointF(80, 20));
+    gradient.setColorAt(0.0, Qt::white);
+    gradient.setColorAt(1.0, QColor(0xa6, 0xce, 0x39));
+
+    background = QBrush(QColor(64, 32, 64));
+    circleBrush = QBrush(gradient);
+    circlePen = QPen(Qt::black);
+    circlePen.setWidth(1);
+    textPen = QPen(Qt::white);
+    textFont.setPixelSize(50);
+
+
     // start GUI
     ui->setupUi(this);
 }
