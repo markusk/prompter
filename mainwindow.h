@@ -7,6 +7,11 @@
 #include <QDir>
 #include <QObject> // for connecting signals and slots
 
+#include <QBrush>
+#include <QFont>
+#include <QPen>
+#include <QWidget>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void paint(QPainter *painter, QPaintEvent *event, int elapsed);
 
 private slots:
     void on_pushButton_clicked();
@@ -32,9 +38,9 @@ private:
     int w = 400;
     int h = 200;
 
-    QImage *image;
-    QPainter *painter;
-    QPixmap *pix;
+    //QImage *image;
+    //QPainter *painter;
+    QPixmap pix;
 
     //
     bool createImage(QString text, QString path, QString imageName, QColor aColor);
