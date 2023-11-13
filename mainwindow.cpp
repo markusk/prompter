@@ -59,7 +59,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::paint(QPainter *painter, QPaintEvent *event, int elapsed)
 {
-    qDebug("paint called.");
+    static int i=0;
+
+    i++;
+    qDebug() << i <<". paint called.";
 }
 
 
