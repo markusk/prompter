@@ -32,9 +32,9 @@ private:
     int w = 400;
     int h = 200;
 
-//    QImage image;
-//    QPainter painter;
-    QPixmap pix;
+    QImage *image;
+    QPainter *painter;
+    QPixmap *pix;
 
     //
     bool createImage(QString text, QString path, QString imageName, QColor aColor);
