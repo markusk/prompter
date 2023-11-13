@@ -25,6 +25,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void paint(QPainter *painter, QPaintEvent *event, int elapsed);
+    void paintEvent(QPaintEvent *event);
 
 private slots:
     void on_pushButton_clicked();

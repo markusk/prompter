@@ -19,9 +19,26 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::paintEvent(QPaintEvent *event)
+{
+    static int i=0;
+
+    i++;
+    qDebug() << i <<". paintEvent called.";
+
+/*
+    QPainter painter;
+    painter.begin(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    helper->paint(&painter, event, elapsed);
+    painter.end();
+*/
+}
+
+
 void MainWindow::paint(QPainter *painter, QPaintEvent *event, int elapsed)
 {
-
+    qDebug("paint called.");
 }
 
 
