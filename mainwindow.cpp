@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     textPen = QPen(Qt::white);
     textFont.setPixelSize(50);
 
+    elapsed = 0;
+
 
     // start GUI
     ui->setupUi(this);
@@ -45,13 +47,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
     i++;
     qDebug() << i <<". paintEvent called.";
 
-/*
     QPainter painter;
     painter.begin(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    helper->paint(&painter, event, elapsed);
+
+    // paint now
+    this->paint(&painter, event, elapsed);
     painter.end();
-*/
 }
 
 
@@ -63,7 +65,7 @@ void MainWindow::paint(QPainter *painter, QPaintEvent *event, int elapsed)
 
 void MainWindow::animate()
 {
-    //elapsed = (elapsed + qobject_cast<QTimer*>(sender())->interval()) % 1000;
+    elapsed = (elapsed + qobject_cast<QTimer*>(sender())->interval()) % 1000;
     update();
 }
 

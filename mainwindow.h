@@ -52,6 +52,9 @@ private:
     QPen circlePen;
     QPen textPen;
 
+    int elapsed;
+
+
     // timer for scroll animation
     QTimer *timer;
 
