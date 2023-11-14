@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     // create scroll timer
     timer = new QTimer(this);
 
+    // scroll one pixel on timeout
     connect(timer, SIGNAL(timeout()), this, SLOT(scrollPrompter()) );
 
     scrollValueY = 0;
@@ -40,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // create prompter text
     updatePrompterImage();
+
+    // update prompter text live, when text field changes
+    connect(ui->textEdit, SIGNAL(textChanged()), this, SLOT(updatePrompterImage()) );
 }
 
 
@@ -100,7 +104,7 @@ void MainWindow::scrollPrompter()
 
 void MainWindow::on_pushButtonTest_clicked()
 {
-    qDebug("pushButton clicked");
+    //qDebug("pushButton clicked");
 
     if (timer->isActive())
     {        

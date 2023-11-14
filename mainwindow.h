@@ -33,7 +33,11 @@ private slots:
     void on_verticalSliderScrollSpeed_valueChanged();
     void on_verticalSliderFontSize_valueChanged();
 
+    // let the prompter text scroll
     void scrollPrompter();
+
+    // update openGL widget with mirrored prompter text
+    bool updatePrompterImage();
 
 
 private:
@@ -57,8 +61,5 @@ private:
 
     // timer for scroll animation
     QTimer *timer;
-
-    //
-    bool updatePrompterImage();
 };
 #endif // MAINWINDOW_H
