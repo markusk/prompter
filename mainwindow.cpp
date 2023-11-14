@@ -38,11 +38,15 @@ MainWindow::MainWindow(QWidget *parent)
     fontSize = ui->verticalSliderFontSize->value();
     textFont.setPixelSize(fontSize);
 
+
+    // add example text to text Edit
+    ui->textEdit->setText("Hello world...");
+
     // create prpmpter image
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text
-    updatePrompterImage("Hello world!", Qt::white);
+    updatePrompterImage(ui->textEdit->toPlainText(), Qt::white);
 }
 
 
