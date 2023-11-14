@@ -53,13 +53,13 @@ private:
 
     int elapsed;
 
-    QColor bgColor;
 
+    QImage imagePrompterText;
 
     // timer for scroll animation
     QTimer *timer;
 
     //
-    bool createImage(QString text, QString path, QString imageName, QColor aColor);
+    bool createImage(QString text, QColor aColor);
 };
 #endif // MAINWINDOW_H

@@ -25,8 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     elapsed = 0;
 
-    bgColor = Qt::green;
-
     // start GUI
     ui->setupUi(this);
 }
@@ -75,20 +73,22 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 //    QPainter painter(&image);
 
+/*
     painter.setBrush(QBrush(bgColor));
     painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
     // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
     QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
     QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
     painter.fillRect(QRect(aRect),Qt::white);
+*/
     painter.setPen(QPen(Qt::black));
     painter.setFont(QFont( "Courier", 20) );
 
     // add text to image
-    painter.drawText(QRect(aRectOffset), "hello world");
+    painter.drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("hello world"));
 
     // mirror image horicontally
-    image = image.mirrored(true, false);
+//    image = image.mirrored(true, false);
 
     // draw image into openGL widget
     painter.drawImage( QPointF(1.0, 0.0), image);
@@ -104,12 +104,13 @@ void MainWindow::animate()
 }
 
 
-bool MainWindow::createImage(QString text, QString path, QString imageName, QColor aColor)
+bool MainWindow::createImage(QString text, QColor aColor)
 {
-    QImage image(QSize(width,height),QImage::Format_RGB32);
+    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
+    // QImage image(QSize(width, height),QImage::Format_RGB32);
     //image = new QImage(width, height, QImage::Format_RGB32);
 
-    QPainter painter(&image);
+    QPainter painter(&imagePrompterText);
     //painter = new QPainter(image);
 
     painter.setBrush(QBrush(aColor));
@@ -125,29 +126,31 @@ bool MainWindow::createImage(QString text, QString path, QString imageName, QCol
     painter.drawText(QRect(aRectOffset),text);
 
     // mirror image horicontally
-    image = image.mirrored(true, false);
+    imagePrompterText = imagePrompterText.mirrored(true, false);
 
     // assign image to Pixmap 'pix'
     pix = QPixmap(width, height);
-    pix.fromImage(image);
+    pix.fromImage(imagePrompterText);
 
     // display image/pixmap in QLabel
     //ui->labelImage->setStyleSheet("border-image:url(:/2.png);");
     ui->labelImage->setPixmap(pix);
 
+/*
     // save image to disk
     QDir aDir = QDir(path);
     if ( aDir.mkpath(path) )
         return image.save(path + "/" + imageName);
     else
         return image.save(imageName);
+*/
 }
 
 
 void MainWindow::on_pushButton_clicked()
 {
     //qDebug("pushButton clicked");
-    createImage("Ein einfacher Text\nDer auch mal länger sein kann.", "./", "TestBild.png", Qt::green);
+    createImage("Hello world!", Qt::white);
 
     // start scroll timer
     // timer->start(50);
