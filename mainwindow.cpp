@@ -25,6 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     elapsed = 0;
 
+    // create prompter text
+    createImage("Hello world!", Qt::white);
+
+
     // start GUI
     ui->setupUi(this);
 }
@@ -41,12 +45,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-//    static int i=0;
-
-//    i++;
-//    qDebug() << i <<". paintEvent called.";
-
-
+    /*
     // paint now
     QPainter painter;
 
@@ -68,7 +67,9 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     // not needed any longer! this->paint(&painter, event, elapsed);
     painter.end();
-/*
+    */
+
+
 
     // show image in openGL widget
     QPainter painter;
@@ -81,7 +82,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.drawImage( QPointF(1.0, 0.0), imagePrompterText);
 
     painter.end();
-*/
 }
 
 
@@ -105,10 +105,13 @@ bool MainWindow::createImage(QString text, QColor aColor)
     painter.setFont(textFont);
 
     // add text to image
-    painter.drawText(QPointF(1.0, 0.0), text);
+    //painter.drawText(QPointF(1.0, 0.0), text);
+    painter.drawText(QRect(0, 0, 100, 100), Qt::AlignCenter, QStringLiteral("hello"));
+
+    painter.end();
 
     // mirror image horicontally
-    imagePrompterText = imagePrompterText.mirrored(true, false);
+//    imagePrompterText = imagePrompterText.mirrored(true, false);
 
     /*
     // assign image to Pixmap 'pix'
