@@ -104,7 +104,7 @@
      <rect>
       <x>1310</x>
       <y>160</y>
-      <width>153</width>
+      <width>154</width>
       <height>131</height>
      </rect>
     </property>
@@ -176,6 +176,19 @@
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </widget>
    <widget class="QTextEdit" name="textEdit">
@@ -227,9 +240,9 @@
         </spacer>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="labelFast">
+        <widget class="QLabel" name="labelSlow">
          <property name="text">
-          <string>🐌</string>
+          <string>🏎️</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -237,9 +250,9 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="labelSlow">
+        <widget class="QLabel" name="labelFast">
          <property name="text">
-          <string>🏎️</string>
+          <string>🐌</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -274,6 +287,19 @@
         <string>50</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </widget>
