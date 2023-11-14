@@ -107,8 +107,6 @@ void MainWindow::scrollPrompter()
 
 void MainWindow::on_pushButtonScroll_clicked()
 {
-    //qDebug("pushButton clicked");
-
     if (timer->isActive())
     {        
         timer->stop();
@@ -188,5 +186,32 @@ void MainWindow::on_radioButtonRight_clicked()
 void MainWindow::on_checkBoxWordWrap_stateChanged()
 {
     // update image
+    updatePrompterImage();
+}
+
+
+void MainWindow::on_pushButtonTest_clicked()
+{
+    //qDebug("Test button clicked");
+    static bool fullScreen = false;
+
+    // toggle
+    fullScreen = !fullScreen;
+
+
+    if (fullScreen)
+    {
+        // mark widget as window to make it full-screen
+        ui->openGLWidget->setWindowFlag(Qt::Window);
+        // show it again! @sa https://doc.qt.io/qt-5/qwidget.html#windowFlags-prop
+        ui->openGLWidget->show();
+        ui->openGLWidget->showFullScreen();
+    }
+    else
+    {
+        ui->openGLWidget->setWindowFlag(Qt::Window, false);
+        ui->openGLWidget->show();
+    }
+
     updatePrompterImage();
 }
