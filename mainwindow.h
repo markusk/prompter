@@ -35,11 +35,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    int width = 1024;
-    int height = 768;
+    int width = 300;
+    int height = 200;
     int offset = 25;
-    int w = 400;
-    int h = 200;
 
     //QImage *image;
     //QPainter *painter;

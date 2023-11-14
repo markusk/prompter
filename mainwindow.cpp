@@ -53,7 +53,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     // paiting into openFLWidget in my form
     painter.begin(ui->openGLWidget);
     painter.setRenderHint(QPainter::Antialiasing);
-/*
+
 
     painter.translate(100, 100);
 
@@ -68,32 +68,20 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     // not needed any longer! this->paint(&painter, event, elapsed);
     painter.end();
-*/
-    QImage image(QSize(width,height),QImage::Format_RGB32);
-
-//    QPainter painter(&image);
-
 /*
-    painter.setBrush(QBrush(bgColor));
-    painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
-    // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
-    QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
-    QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
-    painter.fillRect(QRect(aRect),Qt::white);
-*/
-    painter.setPen(QPen(Qt::black));
-    painter.setFont(QFont( "Courier", 20) );
 
-    // add text to image
-    painter.drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("hello world"));
+    // show image in openGL widget
+    QPainter painter;
 
-    // mirror image horicontally
-//    image = image.mirrored(true, false);
+    // paiting into openFLWidget in my form
+    painter.begin(ui->openGLWidget);
+    painter.setRenderHint(QPainter::Antialiasing);
 
     // draw image into openGL widget
-    painter.drawImage( QPointF(1.0, 0.0), image);
+    painter.drawImage( QPointF(1.0, 0.0), imagePrompterText);
 
     painter.end();
+*/
 }
 
 
@@ -113,29 +101,24 @@ bool MainWindow::createImage(QString text, QColor aColor)
     QPainter painter(&imagePrompterText);
     //painter = new QPainter(image);
 
-    painter.setBrush(QBrush(aColor));
-    painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
-    // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
-    QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
-    QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
-    painter.fillRect(QRect(aRect),Qt::white);
-    painter.setPen(QPen(Qt::black));
-    painter.setFont(QFont( "Courier", 20) );
+    painter.setPen(textPen);
+    painter.setFont(textFont);
 
     // add text to image
-    painter.drawText(QRect(aRectOffset),text);
+    painter.drawText(QPointF(1.0, 0.0), text);
 
     // mirror image horicontally
     imagePrompterText = imagePrompterText.mirrored(true, false);
 
+    /*
     // assign image to Pixmap 'pix'
-    pix = QPixmap(width, height);
+        pix = QPixmap(width, height);
     pix.fromImage(imagePrompterText);
 
     // display image/pixmap in QLabel
     //ui->labelImage->setStyleSheet("border-image:url(:/2.png);");
     ui->labelImage->setPixmap(pix);
-
+*/
 /*
     // save image to disk
     QDir aDir = QDir(path);
@@ -154,5 +137,5 @@ void MainWindow::on_pushButton_clicked()
 
     // start scroll timer
     // timer->start(50);
-
+    // paint now
 }
