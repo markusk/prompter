@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1596</width>
-    <height>576</height>
+    <width>1470</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButtonTest">
     <property name="geometry">
      <rect>
-      <x>1450</x>
+      <x>1360</x>
       <y>470</y>
       <width>100</width>
       <height>32</height>
@@ -30,7 +30,7 @@
    <widget class="QOpenGLWidget" name="openGLWidget">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>660</x>
       <y>20</y>
       <width>640</width>
       <height>480</height>
@@ -40,8 +40,8 @@
    <widget class="QPushButton" name="pushButtonReset">
     <property name="geometry">
      <rect>
-      <x>1340</x>
-      <y>470</y>
+      <x>1360</x>
+      <y>440</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -53,9 +53,9 @@
    <widget class="QGroupBox" name="groupBoxAlignment">
     <property name="geometry">
      <rect>
-      <x>1340</x>
+      <x>1310</x>
       <y>20</y>
-      <width>141</width>
+      <width>151</width>
       <height>101</height>
      </rect>
     </property>
@@ -102,9 +102,9 @@
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1340</x>
+      <x>1310</x>
       <y>130</y>
-      <width>141</width>
+      <width>151</width>
       <height>131</height>
      </rect>
     </property>
@@ -144,9 +144,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>1340</x>
+      <x>1310</x>
       <y>280</y>
-      <width>141</width>
+      <width>151</width>
       <height>131</height>
      </rect>
     </property>
@@ -196,7 +196,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1596</width>
+     <width>1470</width>
      <height>24</height>
     </rect>
    </property>
