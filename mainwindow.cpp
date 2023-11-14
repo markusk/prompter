@@ -64,13 +64,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 
-void MainWindow::scrollPrompter()
-{
-    scrollValueY--;
-    update();
-}
-
-
 bool MainWindow::updatePrompterImage()
 {
     // re-create prompter image <<< does create glitch <<<
@@ -87,6 +80,13 @@ bool MainWindow::updatePrompterImage()
 
     // mirror image horicontally
     imagePrompterText = imagePrompterText.mirrored(true, false);
+}
+
+
+void MainWindow::scrollPrompter()
+{
+    scrollValueY--;
+    update();
 }
 
 
