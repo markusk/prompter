@@ -85,7 +85,7 @@ bool MainWindow::updatePrompterImage()
     painter.setPen(textPen);
     painter.setFont(textFont);
 
-    painter.drawText(QRect(0, 0, width, height), textDirection, ui->textEdit->toPlainText());
+    painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
 
     painter.end();
 
@@ -166,7 +166,7 @@ void MainWindow::on_radioButtonCentered_clicked()
 {
     // change text alignment
     if (ui->radioButtonCentered->isChecked())
-        textDirection = Qt::AlignCenter;
+        textDirection = Qt::AlignHCenter;
 
     // update image
     updatePrompterImage();
