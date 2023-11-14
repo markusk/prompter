@@ -38,6 +38,9 @@ MainWindow::MainWindow(QWidget *parent)
     fontSize = ui->verticalSliderFontSize->value();
     textFont.setPixelSize(fontSize);
 
+    // create prpmpter image
+    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
+
     // create prompter text
     createImage("Hello world!", Qt::white);
 }
@@ -51,32 +54,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-    /*
-    // paint now
-    QPainter painter;
-
-    // paiting into openFLWidget in my form
-    painter.begin(ui->openGLWidget);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-
-    painter.translate(100, 100);
-
-    //painter.save();
-    //painter.rotate(180);
-
-
-    painter.setPen(textPen);
-    painter.setFont(textFont);
-    painter.drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("Qt"));
-    //painter.restore();
-
-    // not needed any longer! this->paint(&painter, event, elapsed);
-    painter.end();
-    */
-
-
-
     // show image in openGL widget
     QPainter painter;
 
@@ -100,9 +77,6 @@ void MainWindow::animate()
 
 bool MainWindow::createImage(QString text, QColor color)
 {
-    // create image
-    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
-
     QPainter painter(&imagePrompterText);
     //painter = new QPainter(image);
 
