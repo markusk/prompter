@@ -105,14 +105,14 @@ void MainWindow::scrollPrompter()
 }
 
 
-void MainWindow::on_pushButtonTest_clicked()
+void MainWindow::on_pushButtonScroll_clicked()
 {
     //qDebug("pushButton clicked");
 
     if (timer->isActive())
     {        
         timer->stop();
-        ui->pushButtonTest->setText("Scroll");
+        ui->pushButtonScroll->setText("Scroll");
     }
     else
     {
@@ -120,7 +120,7 @@ void MainWindow::on_pushButtonTest_clicked()
         updatePrompterImage();
 
         timer->start(scrollSpeed);
-        ui->pushButtonTest->setText("Stop");
+        ui->pushButtonScroll->setText("Stop");
     }
 }
 

@@ -28,7 +28,7 @@ public:
     void paintEvent(QPaintEvent *event);
 
 private slots:
-    void on_pushButtonTest_clicked();
+    void on_pushButtonScroll_clicked();
     void on_pushButtonReset_clicked();
     void on_verticalSliderScrollSpeed_valueChanged();
     void on_verticalSliderFontSize_valueChanged();
