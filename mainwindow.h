@@ -39,8 +39,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    int width = 640; /// @todo change to widget size in GUI
-    int height = 480;
+    int width;
+    int height;
 
     // new for OpenGL drawing
     QFont textFont;

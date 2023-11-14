@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer(this);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(scrollPrompter()) );
-    //QObject::connect(scrollTimer, &QTimer::timeout, formWidget, scrollPrompterText);
-
 
     scrollValueY = 0;
 
@@ -29,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     fontSize = ui->verticalSliderFontSize->value();
     textFont.setPixelSize(fontSize);
 
+    // get prompter widget size for the QImage
+    width = ui->openGLWidget->width();
+    height= ui->openGLWidget->height();
 
     // add example text to text Edit
     ui->textEdit->setText("Hello world...");
