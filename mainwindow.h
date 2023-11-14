@@ -35,8 +35,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    int width = 300;
-    int height = 200;
+    int width = 640; /// @todo change to widget size in GUI
+    int height = 480;
     int offset = 25;
 
     //QImage *image;
@@ -58,6 +58,6 @@ private:
     QTimer *timer;
 
     //
-    bool createImage(QString text, QColor aColor);
+    bool createImage(QString text, QColor color);
 };
 #endif // MAINWINDOW_H
