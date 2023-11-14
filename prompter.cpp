@@ -1,10 +1,10 @@
-#include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "prompter.h"
+#include "./ui_prompter.h"
 
 
-MainWindow::MainWindow(QWidget *parent)
+Prompter::Prompter(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::Prompter)
 {
     // create scroll timer
     timer = new QTimer(this);
@@ -47,13 +47,13 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 
-MainWindow::~MainWindow()
+Prompter::~Prompter()
 {
     delete ui;
 }
 
 
-void MainWindow::paintEvent(QPaintEvent *event)
+void Prompter::paintEvent(QPaintEvent *event)
 {
     // show image in openGL widget
     QPainter painter;
@@ -69,7 +69,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 
-bool MainWindow::updatePrompterImage()
+bool Prompter::updatePrompterImage()
 {
     QPainter painter(&imagePrompterText);
 
@@ -102,14 +102,14 @@ bool MainWindow::updatePrompterImage()
 }
 
 
-void MainWindow::scrollPrompter()
+void Prompter::scrollPrompter()
 {
     scrollValueY--;
     update();
 }
 
 
-void MainWindow::on_pushButtonScroll_clicked()
+void Prompter::on_pushButtonScroll_clicked()
 {
     if (timer->isActive())
     {        
@@ -127,7 +127,7 @@ void MainWindow::on_pushButtonScroll_clicked()
 }
 
 
-void MainWindow::on_pushButtonReset_clicked()
+void Prompter::on_pushButtonReset_clicked()
 {
     scrollValueY = 0;
 
@@ -136,7 +136,7 @@ void MainWindow::on_pushButtonReset_clicked()
 }
 
 
-void MainWindow::on_verticalSliderScrollSpeed_valueChanged()
+void Prompter::on_verticalSliderScrollSpeed_valueChanged()
 {
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
     ui->labelScrollSpeed->setNum(scrollSpeed);
@@ -144,7 +144,7 @@ void MainWindow::on_verticalSliderScrollSpeed_valueChanged()
 }
 
 
-void MainWindow::on_verticalSliderFontSize_valueChanged()
+void Prompter::on_verticalSliderFontSize_valueChanged()
 {
     fontSize = ui->verticalSliderFontSize->value();
     ui->labelFontSize->setNum(fontSize);
@@ -154,7 +154,7 @@ void MainWindow::on_verticalSliderFontSize_valueChanged()
 }
 
 
-void MainWindow::on_radioButtonLeft_clicked()
+void Prompter::on_radioButtonLeft_clicked()
 {
     // change text alignment
     if (ui->radioButtonLeft->isChecked())
@@ -165,7 +165,7 @@ void MainWindow::on_radioButtonLeft_clicked()
 }
 
 
-void MainWindow::on_radioButtonCentered_clicked()
+void Prompter::on_radioButtonCentered_clicked()
 {
     // change text alignment
     if (ui->radioButtonCentered->isChecked())
@@ -176,7 +176,7 @@ void MainWindow::on_radioButtonCentered_clicked()
 }
 
 
-void MainWindow::on_radioButtonRight_clicked()
+void Prompter::on_radioButtonRight_clicked()
 {
     // change text alignment
     if (ui->radioButtonRight->isChecked())
@@ -187,14 +187,14 @@ void MainWindow::on_radioButtonRight_clicked()
 }
 
 
-void MainWindow::on_checkBoxWordWrap_stateChanged()
+void Prompter::on_checkBoxWordWrap_stateChanged()
 {
     // update image
     updatePrompterImage();
 }
 
 
-void MainWindow::on_pushButtonTest_clicked()
+void Prompter::on_pushButtonTest_clicked()
 {
     //qDebug("Test button clicked");
     static bool fullScreen = false;

@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef PROMPTER_H
+#define PROMPTER_H
 
 #include <QMainWindow>
 #include <QPainter>
@@ -15,16 +15,16 @@
 
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class Prompter; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class Prompter : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    Prompter(QWidget *parent = nullptr);
+    ~Prompter();
     void paintEvent(QPaintEvent *event);
 
 private slots:
@@ -46,7 +46,7 @@ private slots:
 
 
 private:
-    Ui::MainWindow *ui;
+    Ui::Prompter *ui;
 
     int width;
     int height;
@@ -67,4 +67,4 @@ private:
     // timer for scroll animation
     QTimer *timer;
 };
-#endif // MAINWINDOW_H
+#endif // PROMPTER_H
