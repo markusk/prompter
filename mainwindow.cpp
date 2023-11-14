@@ -80,6 +80,8 @@ bool MainWindow::updatePrompterImage()
     painter.eraseRect(0,0, width, height);
     painter.fillRect(0,0,width, height, backgroundColor);
 
+    // use font site (if changed on slider, @sa on_verticalSliderFontSize_valueChanged slot)
+    textFont.setPixelSize(fontSize);
     painter.setPen(textPen);
     painter.setFont(textFont);
 
@@ -152,4 +154,7 @@ void MainWindow::on_verticalSliderFontSize_valueChanged()
 {
     fontSize = ui->verticalSliderFontSize->value();
     ui->labelFontSize->setNum(fontSize);
+
+    // update image
+    updatePrompterImage();
 }
