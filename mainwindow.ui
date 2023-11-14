@@ -242,7 +242,7 @@
        <item row="2" column="0">
         <widget class="QLabel" name="labelSlow">
          <property name="text">
-          <string>🏎️</string>
+          <string>&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -252,7 +252,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="labelFast">
          <property name="text">
-          <string>🐌</string>
+          <string>&lt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -310,7 +310,7 @@
      <x>0</x>
      <y>0</y>
      <width>1470</width>
-     <height>24</height>
+     <height>36</height>
     </rect>
    </property>
   </widget>
