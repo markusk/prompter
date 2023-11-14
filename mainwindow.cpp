@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     textDirection = Qt::AlignCenter;
     textColor = Qt::white;
     textPen = QPen(textColor);
+    backgroundColor = Qt::black;
 
     // start GUI
     ui->setupUi(this);
@@ -71,6 +72,10 @@ bool MainWindow::updatePrompterImage()
 
     QPainter painter(&imagePrompterText);
 
+    // erase area inside the rectangle
+    painter.eraseRect(0,0, width, height);
+    painter.fillRect(0,0,width, height, backgroundColor);
+
     painter.setPen(textPen);
     painter.setFont(textFont);
 
@@ -80,6 +85,9 @@ bool MainWindow::updatePrompterImage()
 
     // mirror image horicontally
     imagePrompterText = imagePrompterText.mirrored(true, false);
+
+    // update GUI
+    update();
 }
 
 
@@ -122,9 +130,6 @@ void MainWindow::on_pushButtonReset_clicked()
 
     // recreate image
     updatePrompterImage();
-
-    // update GUI
-    update();
 }
 
 
