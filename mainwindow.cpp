@@ -103,12 +103,15 @@ void MainWindow::on_pushButtonTest_clicked()
     qDebug("pushButton clicked");
 
     if (timer->isActive())
-    {
+    {        
         timer->stop();
         ui->pushButtonTest->setText("Scroll");
     }
     else
     {
+        // update image
+        updatePrompterImage();
+
         timer->start(scrollSpeed);
         ui->pushButtonTest->setText("Stop");
     }
@@ -128,7 +131,7 @@ void MainWindow::on_pushButtonReset_clicked()
 
     scrollValueY = 0;
 
-    // recreate image
+    // update image
     updatePrompterImage();
 }
 
