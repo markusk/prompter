@@ -53,6 +53,8 @@ private:
 
     int elapsed;
 
+    QColor bgColor;
+
 
     // timer for scroll animation
     QTimer *timer;

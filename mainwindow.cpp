@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     elapsed = 0;
 
+    bgColor = Qt::green;
 
     // start GUI
     ui->setupUi(this);
@@ -42,10 +43,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-    static int i=0;
+//    static int i=0;
 
-    i++;
-    qDebug() << i <<". paintEvent called.";
+//    i++;
+//    qDebug() << i <<". paintEvent called.";
 
 
     // paint now
@@ -54,38 +55,44 @@ void MainWindow::paintEvent(QPaintEvent *event)
     // paiting into openFLWidget in my form
     painter.begin(ui->openGLWidget);
     painter.setRenderHint(QPainter::Antialiasing);
+/*
 
-
-//    painter.fillRect(event->rect(), background);
     painter.translate(100, 100);
-    //! [1]
 
-    //! [2]
-    painter.save();
-    painter.setBrush(circleBrush);
-    painter.setPen(circlePen);
-    painter.rotate(elapsed * 0.030);
+    //painter.save();
+    //painter.rotate(180);
 
-    qreal r = elapsed / 1000.0;
-    int n = 30;
-    for (int i = 0; i < n; ++i) {
-        painter.rotate(30);
-        qreal factor = (i + r) / n;
-        qreal radius = 0 + 120.0 * factor;
-        qreal circleRadius = 1 + factor * 20;
-        painter.drawEllipse(QRectF(radius, -circleRadius,
-                                    circleRadius * 2, circleRadius * 2));
-    }
-    painter.restore();
-    //! [2]
 
-    //! [3]
     painter.setPen(textPen);
     painter.setFont(textFont);
     painter.drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("Qt"));
-
+    //painter.restore();
 
     // not needed any longer! this->paint(&painter, event, elapsed);
+    painter.end();
+*/
+    QImage image(QSize(width,height),QImage::Format_RGB32);
+
+//    QPainter painter(&image);
+
+    painter.setBrush(QBrush(bgColor));
+    painter.fillRect(QRectF(0,0,width,height),Qt::darkGreen);
+    // qDebug() << (width-w-offset)/2 << "\t" << (height-h-offset)/2 << "\t" << w << "\t" << h;
+    QRect aRect = QRect( (width-w)/2, (height-h)/2, w, h );
+    QRect aRectOffset = QRect( (width-w+offset)/2, (height-h+offset)/2, w-(offset/2), h-(offset/2) );
+    painter.fillRect(QRect(aRect),Qt::white);
+    painter.setPen(QPen(Qt::black));
+    painter.setFont(QFont( "Courier", 20) );
+
+    // add text to image
+    painter.drawText(QRect(aRectOffset), "hello world");
+
+    // mirror image horicontally
+    image = image.mirrored(true, false);
+
+    // draw image into openGL widget
+    painter.drawImage( QPointF(1.0, 0.0), image);
+
     painter.end();
 }
 
