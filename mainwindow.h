@@ -28,7 +28,8 @@ public:
     void paintEvent(QPaintEvent *event);
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButtonTest_clicked();
+    void on_pushButtonReset_clicked();
     void animate();
 
 
@@ -53,7 +54,7 @@ private:
 
 
     QImage imagePrompterText;
-
+    int scrollValueY;
 
     // timer for scroll animation
     QTimer *timer;

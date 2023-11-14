@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     elapsed = 0;
 
+    scrollValueY = 0;
+
     // create prompter text
     createImage("Hello world!", Qt::white);
 
@@ -76,7 +78,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing);
 
     // draw image into openGL widget
-    painter.drawImage( QPoint(1, 0), imagePrompterText);
+    painter.drawImage( QPoint(1, scrollValueY), imagePrompterText);
 
     painter.end();
 }
@@ -110,7 +112,7 @@ bool MainWindow::createImage(QString text, QColor color)
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButtonTest_clicked()
 {
     qDebug("pushButton clicked");
     //createImage("Hello world!", Qt::white);
@@ -120,4 +122,12 @@ void MainWindow::on_pushButton_clicked()
 
     // scroll -> does not work
     //ui->openGLWidget->scroll(0, -1);
+    scrollValueY--;
+}
+
+
+void MainWindow::on_pushButtonReset_clicked()
+{
+    scrollValueY = 0;
+    update();
 }
