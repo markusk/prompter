@@ -33,7 +33,7 @@ private slots:
     void on_verticalSliderScrollSpeed_valueChanged();
     void on_verticalSliderFontSize_valueChanged();
 
-    void animate();
+    void scrollPrompter();
 
 
 private:

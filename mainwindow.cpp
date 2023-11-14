@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     // create scroll timer
     timer = new QTimer(this);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(animate()) );
+    connect(timer, SIGNAL(timeout()), this, SLOT(scrollPrompter()) );
     //QObject::connect(scrollTimer, &QTimer::timeout, formWidget, scrollPrompterText);
 
 
@@ -63,7 +63,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 
-void MainWindow::animate()
+void MainWindow::scrollPrompter()
 {
     scrollValueY--;
     update();
