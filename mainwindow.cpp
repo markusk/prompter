@@ -50,11 +50,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     // paint now
     QPainter painter;
-    painter.begin(this);
+
+    // paiting into openFLWidget in my form
+    painter.begin(ui->openGLWidget);
     painter.setRenderHint(QPainter::Antialiasing);
 
 
-    painter.fillRect(event->rect(), background);
+//    painter.fillRect(event->rect(), background);
     painter.translate(100, 100);
     //! [1]
 
