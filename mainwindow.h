@@ -61,11 +61,12 @@ private:
     int scrollSpeed;
     int textDirection;
     int fontSize;
+    int textColor;
 
     // timer for scroll animation
     QTimer *timer;
 
     //
-    bool updatePrompterImage(QString text, QColor color);
+    bool updatePrompterImage();
 };
 #endif // MAINWINDOW_H

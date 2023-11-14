@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     scrollValueY = 0;
 
     textDirection = Qt::AlignCenter;
+    textColor = Qt::white;
 
     // start GUI
     ui->setupUi(this);
@@ -46,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text
-    updatePrompterImage(ui->textEdit->toPlainText(), Qt::white);
+    updatePrompterImage();
 }
 
 
@@ -79,15 +80,14 @@ void MainWindow::animate()
 }
 
 
-bool MainWindow::updatePrompterImage(QString text, QColor color)
+bool MainWindow::updatePrompterImage()
 {
     QPainter painter(&imagePrompterText);
-    //painter = new QPainter(image);
 
     painter.setPen(textPen);
     painter.setFont(textFont);
 
-    painter.drawText(QRect(0, 0, width, height), textDirection, text);
+    painter.drawText(QRect(0, 0, width, height), textDirection, ui->textEdit->toPlainText());
 
     painter.end();
 
@@ -127,7 +127,7 @@ void MainWindow::on_pushButtonReset_clicked()
     scrollValueY = 0;
 
     // recreate image
-//    createImage("Hello world!", Qt::white);
+    updatePrompterImage();
 
     // update GUI
     update();
