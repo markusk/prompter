@@ -66,6 +66,6 @@ private:
     QTimer *timer;
 
     //
-    bool createImage(QString text, QColor color);
+    bool updatePrompterImage(QString text, QColor color);
 };
 #endif // MAINWINDOW_H

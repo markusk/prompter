@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text
-    createImage("Hello world!", Qt::white);
+    updatePrompterImage("Hello world!", Qt::white);
 }
 
 
@@ -75,7 +75,7 @@ void MainWindow::animate()
 }
 
 
-bool MainWindow::createImage(QString text, QColor color)
+bool MainWindow::updatePrompterImage(QString text, QColor color)
 {
     QPainter painter(&imagePrompterText);
     //painter = new QPainter(image);
