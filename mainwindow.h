@@ -28,18 +28,20 @@ public:
     void paintEvent(QPaintEvent *event);
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButtonTest_clicked();
+    void on_pushButtonReset_clicked();
+    void on_verticalSliderScrollSpeed_valueChanged();
+    void on_verticalSliderFontSize_valueChanged();
+
     void animate();
 
 
 private:
     Ui::MainWindow *ui;
 
-    int width = 1024;
-    int height = 768;
+    int width = 640; /// @todo change to widget size in GUI
+    int height = 480;
     int offset = 25;
-    int w = 400;
-    int h = 200;
 
     //QImage *image;
     //QPainter *painter;
@@ -54,10 +56,16 @@ private:
     int elapsed;
 
 
+    QImage imagePrompterText;
+    int scrollValueY;
+    int scrollSpeed;
+    int textDirection;
+    int fontSize;
+
     // timer for scroll animation
     QTimer *timer;
 
     //
-    bool createImage(QString text, QString path, QString imageName, QColor aColor);
+    bool createImage(QString text, QColor color);
 };
 #endif // MAINWINDOW_H
