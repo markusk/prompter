@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     circlePen = QPen(Qt::black);
     circlePen.setWidth(1);
     textPen = QPen(Qt::white);
-    textFont.setPixelSize(50);
 
     elapsed = 0;
 
@@ -29,15 +28,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     textDirection = Qt::AlignCenter;
 
-    // create prompter text
-    createImage("Hello world!", Qt::white);
-
-
     // start GUI
     ui->setupUi(this);
 
     // get scroll speed from slider value
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
+
+    // get font size from slider value
+    fontSize = ui->verticalSliderFontSize->value();
+    textFont.setPixelSize(fontSize);
+
+    // create prompter text
+    createImage("Hello world!", Qt::white);
 }
 
 
@@ -159,4 +161,11 @@ void MainWindow::on_verticalSliderScrollSpeed_valueChanged()
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
     ui->labelScrollSpeed->setNum(scrollSpeed);
     timer->setInterval(scrollSpeed);
+}
+
+
+void MainWindow::on_verticalSliderFontSize_valueChanged()
+{
+    fontSize = ui->verticalSliderFontSize->value();
+    ui->labelFontSize->setNum(fontSize);
 }

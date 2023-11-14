@@ -31,6 +31,7 @@ private slots:
     void on_pushButtonTest_clicked();
     void on_pushButtonReset_clicked();
     void on_verticalSliderScrollSpeed_valueChanged();
+    void on_verticalSliderFontSize_valueChanged();
 
     void animate();
 
@@ -59,6 +60,7 @@ private:
     int scrollValueY;
     int scrollSpeed;
     int textDirection;
+    int fontSize;
 
     // timer for scroll animation
     QTimer *timer;
