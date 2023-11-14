@@ -52,7 +52,7 @@ private:
     int scrollSpeed;
     int textDirection;
     int fontSize;
-    int textColor;
+    QColor textColor;
 
     // timer for scroll animation
     QTimer *timer;

@@ -12,12 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(animate()) );
     //QObject::connect(scrollTimer, &QTimer::timeout, formWidget, scrollPrompterText);
 
-    textPen = QPen(Qt::white);
 
     scrollValueY = 0;
 
     textDirection = Qt::AlignCenter;
     textColor = Qt::white;
+    textPen = QPen(textColor);
 
     // start GUI
     ui->setupUi(this);
