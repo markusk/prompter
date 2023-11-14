@@ -151,7 +151,7 @@ void MainWindow::on_verticalSliderFontSize_valueChanged()
 }
 
 
-void MainWindow::on_radioButtonLeftclicked()
+void MainWindow::on_radioButtonLeft_clicked()
 {
     // change text alignment
     if (ui->radioButtonLeft->isChecked())
@@ -162,7 +162,7 @@ void MainWindow::on_radioButtonLeftclicked()
 }
 
 
-void MainWindow::on_radioButtonCenteredclicked()
+void MainWindow::on_radioButtonCentered_clicked()
 {
     // change text alignment
     if (ui->radioButtonCentered->isChecked())
@@ -173,7 +173,7 @@ void MainWindow::on_radioButtonCenteredclicked()
 }
 
 
-void MainWindow::on_radioButtonRightclicked()
+void MainWindow::on_radioButtonRight_clicked()
 {
     // change text alignment
     if (ui->radioButtonRight->isChecked())
