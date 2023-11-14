@@ -32,6 +32,9 @@ private slots:
     void on_pushButtonReset_clicked();
     void on_verticalSliderScrollSpeed_valueChanged();
     void on_verticalSliderFontSize_valueChanged();
+    void on_radioButtonLeftclicked();
+    void on_radioButtonCenteredclicked();
+    void on_radioButtonRightclicked();
 
     // let the prompter text scroll
     void scrollPrompter();

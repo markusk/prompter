@@ -126,15 +126,6 @@ void MainWindow::on_pushButtonTest_clicked()
 
 void MainWindow::on_pushButtonReset_clicked()
 {
-    // change text alignment
-    if (ui->radioButtonLeft->isChecked())
-        textDirection = Qt::AlignLeft;
-    else
-        if (ui->radioButtonCentered->isChecked())
-            textDirection = Qt::AlignCenter;
-        else
-            textDirection = Qt::AlignRight;
-
     scrollValueY = 0;
 
     // update image
@@ -154,6 +145,39 @@ void MainWindow::on_verticalSliderFontSize_valueChanged()
 {
     fontSize = ui->verticalSliderFontSize->value();
     ui->labelFontSize->setNum(fontSize);
+
+    // update image
+    updatePrompterImage();
+}
+
+
+void MainWindow::on_radioButtonLeftclicked()
+{
+    // change text alignment
+    if (ui->radioButtonLeft->isChecked())
+        textDirection = Qt::AlignLeft;
+
+    // update image
+    updatePrompterImage();
+}
+
+
+void MainWindow::on_radioButtonCenteredclicked()
+{
+    // change text alignment
+    if (ui->radioButtonCentered->isChecked())
+        textDirection = Qt::AlignCenter;
+
+    // update image
+    updatePrompterImage();
+}
+
+
+void MainWindow::on_radioButtonRightclicked()
+{
+    // change text alignment
+    if (ui->radioButtonRight->isChecked())
+        textDirection = Qt::AlignRight;
 
     // update image
     updatePrompterImage();
