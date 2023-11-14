@@ -26,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     elapsed = 0;
 
     scrollValueY = 0;
-    scrollSpeed = 50; // ms
+
+    textDirection = Qt::AlignCenter;
 
     // create prompter text
     createImage("Hello world!", Qt::white);
@@ -34,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // start GUI
     ui->setupUi(this);
+
+    // get scroll speed from slider value
+    scrollSpeed = ui->verticalSliderScrollSpeed->value();
 }
 
 
@@ -103,8 +107,7 @@ bool MainWindow::createImage(QString text, QColor color)
     painter.setPen(textPen);
     painter.setFont(textFont);
 
-    // add text to image
-    painter.drawText(QRect(0, 0, width, height), Qt::AlignCenter, text);
+    painter.drawText(QRect(0, 0, width, height), textDirection, text);
 
     painter.end();
 
@@ -120,7 +123,7 @@ void MainWindow::on_pushButtonTest_clicked()
     if (timer->isActive())
     {
         timer->stop();
-        ui->pushButtonTest->setText("Start");
+        ui->pushButtonTest->setText("Scroll");
     }
     else
     {
@@ -132,6 +135,28 @@ void MainWindow::on_pushButtonTest_clicked()
 
 void MainWindow::on_pushButtonReset_clicked()
 {
+    // change text alignment
+    if (ui->radioButtonLeft->isChecked())
+        textDirection = Qt::AlignLeft;
+    else
+        if (ui->radioButtonCentered->isChecked())
+            textDirection = Qt::AlignCenter;
+        else
+            textDirection = Qt::AlignRight;
+
     scrollValueY = 0;
+
+    // recreate image
+//    createImage("Hello world!", Qt::white);
+
+    // update GUI
     update();
+}
+
+
+void MainWindow::on_verticalSliderScrollSpeed_valueChanged()
+{
+    scrollSpeed = ui->verticalSliderScrollSpeed->value();
+    ui->labelScrollSpeed->setNum(scrollSpeed);
+    timer->setInterval(scrollSpeed);
 }

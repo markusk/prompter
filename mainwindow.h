@@ -30,6 +30,8 @@ public:
 private slots:
     void on_pushButtonTest_clicked();
     void on_pushButtonReset_clicked();
+    void on_verticalSliderScrollSpeed_valueChanged();
+
     void animate();
 
 
@@ -56,6 +58,7 @@ private:
     QImage imagePrompterText;
     int scrollValueY;
     int scrollSpeed;
+    int textDirection;
 
     // timer for scroll animation
     QTimer *timer;
