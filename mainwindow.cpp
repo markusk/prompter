@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     elapsed = 0;
 
     scrollValueY = 0;
+    scrollSpeed = 50; // ms
 
     // create prompter text
     createImage("Hello world!", Qt::white);
@@ -86,7 +87,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::animate()
 {
-    elapsed = (elapsed + qobject_cast<QTimer*>(sender())->interval()) % 1000;
+    scrollValueY--;
     update();
 }
 
@@ -115,14 +116,17 @@ bool MainWindow::createImage(QString text, QColor color)
 void MainWindow::on_pushButtonTest_clicked()
 {
     qDebug("pushButton clicked");
-    //createImage("Hello world!", Qt::white);
 
-    // start scroll timer
-    // timer->start(50);
-
-    // scroll -> does not work
-    //ui->openGLWidget->scroll(0, -1);
-    scrollValueY--;
+    if (timer->isActive())
+    {
+        timer->stop();
+        ui->pushButtonTest->setText("Start");
+    }
+    else
+    {
+        timer->start(scrollSpeed);
+        ui->pushButtonTest->setText("Stop");
+    }
 }
 
 

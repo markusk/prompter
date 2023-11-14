@@ -55,6 +55,7 @@ private:
 
     QImage imagePrompterText;
     int scrollValueY;
+    int scrollSpeed;
 
     // timer for scroll animation
     QTimer *timer;
