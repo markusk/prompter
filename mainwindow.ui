@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1470</width>
-    <height>573</height>
+    <height>572</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Prompter</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButtonScroll">
@@ -323,7 +323,7 @@
      <x>0</x>
      <y>0</y>
      <width>1470</width>
-     <height>24</height>
+     <height>36</height>
     </rect>
    </property>
   </widget>

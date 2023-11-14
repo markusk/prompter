@@ -199,9 +199,9 @@ void MainWindow::on_pushButtonTest_clicked()
     //qDebug("Test button clicked");
     static bool fullScreen = false;
 
+
     // toggle
     fullScreen = !fullScreen;
-
 
     if (fullScreen)
     {
