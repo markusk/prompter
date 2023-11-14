@@ -16,13 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     gradient.setColorAt(0.0, Qt::white);
     gradient.setColorAt(1.0, QColor(0xa6, 0xce, 0x39));
 
-    background = QBrush(QColor(64, 32, 64));
-    circleBrush = QBrush(gradient);
-    circlePen = QPen(Qt::black);
-    circlePen.setWidth(1);
     textPen = QPen(Qt::white);
-
-    elapsed = 0;
 
     scrollValueY = 0;
 
@@ -43,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     // add example text to text Edit
     ui->textEdit->setText("Hello world...");
 
-    // create prpmpter image
+    // create prompter image
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text
@@ -82,6 +76,9 @@ void MainWindow::animate()
 
 bool MainWindow::updatePrompterImage()
 {
+    // re-create prompter image <<< does create glitch <<<
+    // imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
+
     QPainter painter(&imagePrompterText);
 
     painter.setPen(textPen);

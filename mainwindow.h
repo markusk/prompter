@@ -41,19 +41,10 @@ private:
 
     int width = 640; /// @todo change to widget size in GUI
     int height = 480;
-    int offset = 25;
 
-    //QImage *image;
-    //QPainter *painter;
-    QPixmap pix;
     // new for OpenGL drawing
-    QBrush background;
-    QBrush circleBrush;
     QFont textFont;
-    QPen circlePen;
     QPen textPen;
-
-    int elapsed;
 
 
     QImage imagePrompterText;
