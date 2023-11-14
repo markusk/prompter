@@ -90,45 +90,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
 }
 
 
-/*
-void MainWindow::paint(QPainter *painter, QPaintEvent *event, int elapsed)
-{
-    static int i=0;
-
-    i++;
-    qDebug() << i <<". paint called.";
-
-    painter->fillRect(event->rect(), background);
-    painter->translate(100, 100);
-    //! [1]
-
-    //! [2]
-    painter->save();
-    painter->setBrush(circleBrush);
-    painter->setPen(circlePen);
-    painter->rotate(elapsed * 0.030);
-
-    qreal r = elapsed / 1000.0;
-    int n = 30;
-    for (int i = 0; i < n; ++i) {
-        painter->rotate(30);
-        qreal factor = (i + r) / n;
-        qreal radius = 0 + 120.0 * factor;
-        qreal circleRadius = 1 + factor * 20;
-        painter->drawEllipse(QRectF(radius, -circleRadius,
-                                    circleRadius * 2, circleRadius * 2));
-    }
-    painter->restore();
-    //! [2]
-
-    //! [3]
-    painter->setPen(textPen);
-    painter->setFont(textFont);
-    painter->drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("Qt"));
-}
-*/
-
-
 void MainWindow::animate()
 {
     elapsed = (elapsed + qobject_cast<QTimer*>(sender())->interval()) % 1000;
