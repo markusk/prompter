@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
-    height= ui->openGLWidget->height();
+    height = ui->openGLWidget->height();
 
     // add example text to text Edit
     ui->textEdit->setText("Hello world...");
@@ -72,6 +72,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 bool MainWindow::updatePrompterImage()
 {
     QPainter painter(&imagePrompterText);
+
+    // get prompter widget size for the QImage
+    width = ui->openGLWidget->width();
+    height = ui->openGLWidget->height();
 
     // erase area inside the rectangle
     painter.eraseRect(0,0, width, height);
