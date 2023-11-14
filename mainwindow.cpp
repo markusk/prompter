@@ -76,7 +76,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing);
 
     // draw image into openGL widget
-    painter.drawImage( QPointF(1.0, 0.0), imagePrompterText);
+    painter.drawImage( QPoint(1, 0), imagePrompterText);
 
     painter.end();
 }
@@ -101,7 +101,7 @@ bool MainWindow::createImage(QString text, QColor color)
     painter.setFont(textFont);
 
     // add text to image
-    painter.drawText(QRect(0, 0, width, height), Qt::AlignCenter, QStringLiteral("hello"));
+    painter.drawText(QRect(0, 0, width, height), Qt::AlignCenter, text);
 
     painter.end();
 
@@ -117,5 +117,7 @@ void MainWindow::on_pushButton_clicked()
 
     // start scroll timer
     // timer->start(50);
-    // paint now
+
+    // scroll -> does not work
+    //ui->openGLWidget->scroll(0, -1);
 }

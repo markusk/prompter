@@ -54,6 +54,7 @@ private:
 
     QImage imagePrompterText;
 
+
     // timer for scroll animation
     QTimer *timer;
 
