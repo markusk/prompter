@@ -35,6 +35,7 @@ private slots:
     void on_radioButtonLeft_clicked();
     void on_radioButtonCentered_clicked();
     void on_radioButtonRight_clicked();
+    void on_checkBoxWordWrap_stateChanged();
 
     // let the prompter text scroll
     void scrollPrompter();

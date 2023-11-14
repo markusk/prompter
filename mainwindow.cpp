@@ -71,9 +71,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 bool MainWindow::updatePrompterImage()
 {
-    // re-create prompter image <<< does create glitch <<<
-    // imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
-
     QPainter painter(&imagePrompterText);
 
     // erase area inside the rectangle
@@ -85,7 +82,11 @@ bool MainWindow::updatePrompterImage()
     painter.setPen(textPen);
     painter.setFont(textFont);
 
-    painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
+    if (ui->checkBoxWordWrap->isChecked())
+        painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter|Qt::TextWordWrap, ui->textEdit->toPlainText());
+    else
+        painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
+
 
     painter.end();
 
@@ -179,6 +180,13 @@ void MainWindow::on_radioButtonRight_clicked()
     if (ui->radioButtonRight->isChecked())
         textDirection = Qt::AlignRight;
 
+    // update image
+    updatePrompterImage();
+}
+
+
+void MainWindow::on_checkBoxWordWrap_stateChanged()
+{
     // update image
     updatePrompterImage();
 }
