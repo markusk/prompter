@@ -36,7 +36,13 @@ Prompter::Prompter(QWidget *parent)
     // add example text to text Edit
     ui->textEdit->setText("Hello world...");
 
-    // create prompter image
+    // get current screen resolution
+    QScreen *screen = qApp->screens().at(0);
+    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
+//    height = screen->geometry().height();
+//    width  = screen->geometry().width();
+
+    // create prompter image (with the max. size of the screen if we go full-screen)
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text

@@ -13,6 +13,8 @@
 #include <QPen>
 #include <QWidget>
 
+#include <QScreen> // for getting resolution
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Prompter; }
