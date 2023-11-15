@@ -14,6 +14,7 @@
 #include <QWidget>
 
 #include <QScreen> // for getting resolution
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE

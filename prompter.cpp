@@ -37,8 +37,8 @@ Prompter::Prompter(QWidget *parent)
     ui->textEdit->setText("Hello world...");
 
     // get current screen resolution
-    QScreen *screen = qApp->screens().at(0);
-    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
+//    QScreen *screen = qApp->screens().at(0);
+//    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
 //    height = screen->geometry().height();
 //    width  = screen->geometry().width();
 
@@ -206,6 +206,7 @@ void Prompter::on_checkBoxWordWrap_stateChanged()
 
 void Prompter::on_pushButtonTest_clicked()
 {
+    /*
     //qDebug("Test button clicked");
     static bool fullScreen = false;
 
@@ -228,4 +229,12 @@ void Prompter::on_pushButtonTest_clicked()
     }
 
     updatePrompterImage();
+
+
+    QMessageBox msgBox;
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setText("prompter");
+    msgBox.setInformativeText("https://github.com/markusk/prompter");
+    msgBox.exec();
+    */
 }
