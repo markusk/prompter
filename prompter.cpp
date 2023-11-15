@@ -72,6 +72,8 @@ void Prompter::paintEvent(QPaintEvent *event)
     painter.drawImage( QPoint(1, scrollValueY), imagePrompterText);
 
     painter.end();
+
+    //qDebug() << "PaintEvent!  OpenGL widget size is " << ui->openGLWidget->width() << "x" << ui->openGLWidget->height();
 }
 
 
@@ -80,10 +82,11 @@ bool Prompter::updatePrompterImage()
     QPainter painter(&imagePrompterText);
 
     // get prompter widget size for the QImage
-    width = ui->openGLWidget->width();
     height = ui->openGLWidget->height();
 
-    // erase area inside the rectangle
+    //painter.begin(ui->openGLWidget);
+
+    // erase area inside the rectangle    
     painter.eraseRect(0,0, width, height);
     painter.fillRect(0,0,width, height, backgroundColor);
 
@@ -97,14 +100,15 @@ bool Prompter::updatePrompterImage()
     else
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
 
-
     painter.end();
 
     // mirror image horicontally
-    imagePrompterText = imagePrompterText.mirrored(true, false);
+    imagePrompterText.mirror(true, false);
 
     // update GUI
     update();
+
+    //qDebug() << "updatePrompterImage update called...";
 }
 
 
