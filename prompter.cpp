@@ -37,13 +37,13 @@ Prompter::Prompter(QWidget *parent)
     ui->textEdit->setText("Hello world...");
 
     // get current screen resolution
-//    QScreen *screen = qApp->screens().at(0);
-//    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
-//    height = screen->geometry().height();
-//    width  = screen->geometry().width();
+    QScreen *screen = qApp->screens().at(0);
+    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
+    height = screen->geometry().height();
+    width  = screen->geometry().width();
 
     // create prompter image (with the max. size of the screen if we go full-screen)
-    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
+//    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text
     updatePrompterImage();
@@ -79,6 +79,8 @@ void Prompter::paintEvent(QPaintEvent *event)
 
 bool Prompter::updatePrompterImage()
 {
+    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
+
     QPainter painter(&imagePrompterText);
 
     // get prompter widget size for the QImage
@@ -206,7 +208,6 @@ void Prompter::on_checkBoxWordWrap_stateChanged()
 
 void Prompter::on_pushButtonTest_clicked()
 {
-    /*
     //qDebug("Test button clicked");
     static bool fullScreen = false;
 
@@ -230,11 +231,11 @@ void Prompter::on_pushButtonTest_clicked()
 
     updatePrompterImage();
 
-
+/*
     QMessageBox msgBox;
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setText("prompter");
     msgBox.setInformativeText("https://github.com/markusk/prompter");
     msgBox.exec();
-    */
+ */
 }
