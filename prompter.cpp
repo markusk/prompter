@@ -104,8 +104,9 @@ bool Prompter::updatePrompterImage()
 
     painter.end();
 
-    // mirror image horicontally
-    imagePrompterText.mirror(true, false);
+    // mirror image horizontally
+    if (ui->checkBoxMirror->isChecked())
+        imagePrompterText.mirror(true, false);
 
     // update GUI
     update();
@@ -200,6 +201,13 @@ void Prompter::on_radioButtonRight_clicked()
 
 
 void Prompter::on_checkBoxWordWrap_stateChanged()
+{
+    // update image
+    updatePrompterImage();
+}
+
+
+void Prompter::on_checkBoxMirror_stateChanged()
 {
     // update image
     updatePrompterImage();

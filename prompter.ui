@@ -6,25 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1470</width>
-    <height>572</height>
+    <width>1483</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Prompter</string>
   </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AnimatedDocks</set>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButtonScroll">
     <property name="geometry">
      <rect>
-      <x>1360</x>
-      <y>470</y>
+      <x>1370</x>
+      <y>440</y>
       <width>100</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Scroll</string>
+     <string>&amp;Scroll</string>
     </property>
    </widget>
    <widget class="QOpenGLWidget" name="openGLWidget">
@@ -40,8 +43,8 @@
    <widget class="QPushButton" name="pushButtonReset">
     <property name="geometry">
      <rect>
-      <x>1360</x>
-      <y>440</y>
+      <x>1370</x>
+      <y>470</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -55,7 +58,7 @@
      <rect>
       <x>1310</x>
       <y>20</y>
-      <width>151</width>
+      <width>161</width>
       <height>101</height>
      </rect>
     </property>
@@ -104,7 +107,7 @@
      <rect>
       <x>1310</x>
       <y>160</y>
-      <width>154</width>
+      <width>161</width>
       <height>131</height>
      </rect>
     </property>
@@ -219,7 +222,7 @@
      <rect>
       <x>1310</x>
       <y>310</y>
-      <width>151</width>
+      <width>161</width>
       <height>121</height>
      </rect>
     </property>
@@ -308,8 +311,8 @@
      <rect>
       <x>1310</x>
       <y>441</y>
-      <width>41</width>
-      <height>61</height>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -338,13 +341,42 @@
      <set>Qt::TextBrowserInteraction</set>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBoxMirror">
+    <property name="geometry">
+     <rect>
+      <x>1410</x>
+      <y>130</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mirror</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonExit">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>520</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>E&amp;xit</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1470</width>
+     <width>1483</width>
      <height>24</height>
     </rect>
    </property>
