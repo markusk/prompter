@@ -33,6 +33,7 @@ public:
 private slots:
     void on_pushButtonScroll_clicked();
     void on_pushButtonReset_clicked();
+    void on_pushButtonExit_clicked();
     void on_verticalSliderScrollSpeed_valueChanged();
     void on_verticalSliderFontSize_valueChanged();
     void on_radioButtonLeft_clicked();

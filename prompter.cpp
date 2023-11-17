@@ -149,6 +149,12 @@ void Prompter::on_pushButtonReset_clicked()
 }
 
 
+void Prompter::on_pushButtonExit_clicked()
+{
+    QApplication::exit();
+}
+
+
 void Prompter::on_verticalSliderScrollSpeed_valueChanged()
 {
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
