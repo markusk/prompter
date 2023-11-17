@@ -383,6 +383,20 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>pushButtonScroll</tabstop>
+  <tabstop>pushButtonReset</tabstop>
+  <tabstop>pushButtonExit</tabstop>
+  <tabstop>radioButtonCentered</tabstop>
+  <tabstop>radioButtonLeft</tabstop>
+  <tabstop>radioButtonRight</tabstop>
+  <tabstop>checkBoxWordWrap</tabstop>
+  <tabstop>checkBoxMirror</tabstop>
+  <tabstop>verticalSliderFontSize</tabstop>
+  <tabstop>verticalSliderScrollSpeed</tabstop>
+  <tabstop>pushButtonTest</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
