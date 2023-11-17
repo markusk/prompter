@@ -2,4 +2,8 @@
     <qresource prefix="/forms">
         <file>prompter.ui</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>icons/prompter.icns</file>
+        <file>icons/prompter.png</file>
+    </qresource>
 </RCC>

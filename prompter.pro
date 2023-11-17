@@ -10,3 +10,8 @@ SOURCES     = prompter.cpp \
               main.cpp
 
 INSTALLS += target
+
+RC_ICONS += prompter.png
+
+DISTFILES += \
+    Info.plist
