@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1471</width>
+    <width>1470</width>
     <height>573</height>
    </rect>
   </property>
@@ -33,9 +33,9 @@
    <widget class="QOpenGLWidget" name="openGLWidget">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>20</y>
-      <width>640</width>
+      <x>640</x>
+      <y>0</y>
+      <width>620</width>
       <height>480</height>
      </rect>
     </property>
@@ -56,9 +56,9 @@
    <widget class="QGroupBox" name="groupBoxAlignment">
     <property name="geometry">
      <rect>
-      <x>1310</x>
-      <y>20</y>
-      <width>151</width>
+      <x>1280</x>
+      <y>0</y>
+      <width>181</width>
       <height>101</height>
      </rect>
     </property>
@@ -70,7 +70,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>121</width>
+       <width>161</width>
        <height>58</height>
       </rect>
      </property>
@@ -105,9 +105,9 @@
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1310</x>
-      <y>160</y>
-      <width>151</width>
+      <x>1280</x>
+      <y>150</y>
+      <width>181</width>
       <height>131</height>
      </rect>
     </property>
@@ -198,31 +198,18 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>640</width>
+      <y>0</y>
+      <width>620</width>
       <height>480</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxWordWrap">
-    <property name="geometry">
-     <rect>
-      <x>1320</x>
-      <y>130</y>
-      <width>85</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Word wrap</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>1310</x>
-      <y>310</y>
-      <width>151</width>
+      <x>1280</x>
+      <y>290</y>
+      <width>181</width>
       <height>121</height>
      </rect>
     </property>
@@ -306,17 +293,17 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButtonTest">
+   <widget class="QPushButton" name="pushButtonFullScreen">
     <property name="geometry">
      <rect>
-      <x>1310</x>
-      <y>441</y>
-      <width>51</width>
+      <x>1280</x>
+      <y>440</y>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Test</string>
+     <string>&amp;Full Screen</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelLink">
@@ -341,22 +328,6 @@
      <set>Qt::TextBrowserInteraction</set>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBoxMirror">
-    <property name="geometry">
-     <rect>
-      <x>1410</x>
-      <y>130</y>
-      <width>61</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Mirror</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButtonExit">
     <property name="geometry">
      <rect>
@@ -370,13 +341,55 @@
      <string>E&amp;xit</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBoxWarpMirror">
+    <property name="geometry">
+     <rect>
+      <x>1280</x>
+      <y>100</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Wrap/Mirror</string>
+    </property>
+    <widget class="QCheckBox" name="checkBoxWordWrap">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>85</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Word wrap</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBoxMirror">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>20</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Mirror</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1471</width>
+     <width>1470</width>
      <height>24</height>
     </rect>
    </property>
