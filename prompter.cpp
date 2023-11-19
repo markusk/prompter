@@ -253,6 +253,8 @@ void Prompter::on_pushButtonTest_clicked()
         ui->textEdit->hide();
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
+        ui->verticalSliderFontSize->hide();
+        ui->verticalSliderScrollSpeed->hide();
 
         // enter fullscreen for main window
         QMainWindow::setWindowFlags(Qt::FramelessWindowHint);
@@ -279,6 +281,9 @@ void Prompter::on_pushButtonTest_clicked()
 
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
+
+        ui->verticalSliderScrollSpeed->show();
+        ui->verticalSliderFontSize->show();
         ui->groupBoxAlignment->show();
         ui->labelLink->show();
         ui->textEdit->show();
