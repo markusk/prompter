@@ -250,6 +250,9 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->openGLWidget->showFullScreen();
         */
 
+        // start scrolling
+        emit on_pushButtonScroll_clicked();
+
         ui->textEdit->hide();
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
@@ -262,9 +265,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
 
         // set openGLWidget to full main window size (not full-Screen)
         ui->openGLWidget->setGeometry(0, 0, ui->centralwidget->width(), ui->centralwidget->height());
-
-        // start scrolling
-        emit on_pushButtonScroll_clicked();
     }
     else
     {
