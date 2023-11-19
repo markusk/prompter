@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1470</width>
-    <height>613</height>
+    <width>1471</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <rect>
       <x>1370</x>
       <y>440</y>
-      <width>100</width>
+      <width>91</width>
       <height>32</height>
      </rect>
     </property>
@@ -45,7 +45,7 @@
      <rect>
       <x>1370</x>
       <y>470</y>
-      <width>100</width>
+      <width>91</width>
       <height>32</height>
      </rect>
     </property>
@@ -58,7 +58,7 @@
      <rect>
       <x>1310</x>
       <y>20</y>
-      <width>161</width>
+      <width>151</width>
       <height>101</height>
      </rect>
     </property>
@@ -107,7 +107,7 @@
      <rect>
       <x>1310</x>
       <y>160</y>
-      <width>161</width>
+      <width>151</width>
       <height>131</height>
      </rect>
     </property>
@@ -222,7 +222,7 @@
      <rect>
       <x>1310</x>
       <y>310</y>
-      <width>161</width>
+      <width>151</width>
       <height>121</height>
      </rect>
     </property>
@@ -323,7 +323,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>500</y>
+      <y>520</y>
       <width>231</width>
       <height>16</height>
      </rect>
@@ -361,8 +361,8 @@
     <property name="geometry">
      <rect>
       <x>1370</x>
-      <y>520</y>
-      <width>100</width>
+      <y>510</y>
+      <width>91</width>
       <height>32</height>
      </rect>
     </property>
@@ -376,12 +376,11 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1470</width>
+     <width>1471</width>
      <height>24</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
   <tabstop>pushButtonScroll</tabstop>
