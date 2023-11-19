@@ -231,7 +231,7 @@ void Prompter::on_checkBoxMirror_stateChanged()
 }
 
 
-void Prompter::on_pushButtonTest_clicked()
+void Prompter::on_pushButtonFullScreen_clicked()
 {
     //qDebug("Test button clicked");
     static bool fullScreen = false;
