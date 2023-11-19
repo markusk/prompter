@@ -365,6 +365,9 @@
      <property name="text">
       <string>Word wrap</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="checkBoxMirror">
      <property name="geometry">
