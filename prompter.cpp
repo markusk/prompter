@@ -61,6 +61,10 @@ Prompter::~Prompter()
 
 void Prompter::paintEvent(QPaintEvent *event)
 {
+    /// added for fullscreen test, does not help at all
+    // updating QImage with content etc...
+    //updatePrompterImage();
+
     // show image in openGL widget
     QPainter painter;
 
@@ -101,7 +105,7 @@ void Prompter::updatePrompterImage()
     if (ui->checkBoxWordWrap->isChecked())
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter|Qt::TextWordWrap, ui->textEdit->toPlainText());
     else
-        painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
+        painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter,                  ui->textEdit->toPlainText());
 
 //    painter.end();
 
