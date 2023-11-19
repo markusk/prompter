@@ -79,12 +79,13 @@ void Prompter::paintEvent(QPaintEvent *event)
 
 void Prompter::updatePrompterImage()
 {
+    // get current widget size
+    width  = ui->openGLWidget->width();
+    height = ui->openGLWidget->height();
+
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     QPainter painter(&imagePrompterText);
-
-    // get prompter widget size for the QImage
-    height = ui->openGLWidget->height();
 
     //painter.begin(ui->openGLWidget);
 
