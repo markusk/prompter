@@ -253,6 +253,7 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->textEdit->hide();
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
+        ui->groupBoxWarpMirror->hide();
         ui->verticalSliderFontSize->hide();
         ui->verticalSliderScrollSpeed->hide();
 
@@ -284,6 +285,7 @@ void Prompter::on_pushButtonFullScreen_clicked()
 
         ui->verticalSliderScrollSpeed->show();
         ui->verticalSliderFontSize->show();
+        ui->groupBoxWarpMirror->show();
         ui->groupBoxAlignment->show();
         ui->labelLink->show();
         ui->textEdit->show();
