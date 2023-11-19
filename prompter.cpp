@@ -27,7 +27,7 @@ Prompter::Prompter(QWidget *parent)
 
     // get font size from slider value
     fontSize = ui->verticalSliderFontSize->value();
-    textFont.setPixelSize(fontSize);
+    prompterFont.setPixelSize(fontSize);
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
@@ -106,10 +106,10 @@ void Prompter::updatePrompterImage()
     painter.eraseRect(0,0, width, height);
     painter.fillRect(0,0,width, height, backgroundColor);
 
-    // use font site (if changed on slider, @sa on_verticalSliderFontSize_valueChanged slot)
-    textFont.setPixelSize(fontSize);
+    // use font size (if changed on slider, @sa on_verticalSliderFontSize_valueChanged slot)
+    prompterFont.setPixelSize(fontSize);
     painter.setPen(textPen);
-    painter.setFont(textFont);
+    painter.setFont(prompterFont);
 
     if (ui->checkBoxWordWrap->isChecked())
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter|Qt::TextWordWrap, ui->textEdit->toPlainText());
