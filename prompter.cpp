@@ -56,6 +56,9 @@ Prompter::Prompter(QWidget *parent)
 
     // update prompter text live, when text field changes
     connect(ui->textEdit, SIGNAL(textChanged()), this, SLOT(updatePrompterImage()) );
+
+    // update chosen font
+    connect(ui->fontComboBox, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxChanged(QFont)));
 }
 
 
@@ -299,4 +302,10 @@ void Prompter::on_pushButtonFullScreen_clicked()
     msgBox.setInformativeText("https://github.com/markusk/prompter");
     msgBox.exec();
  */
+}
+
+void Prompter::onFontComboBoxChanged(const QFont& font)
+{
+    // Do something with the selected font, for example, update a label
+    ui->label->setFont(font);
 }

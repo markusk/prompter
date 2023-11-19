@@ -49,6 +49,9 @@ private slots:
     // update openGL widget with mirrored prompter text
     void updatePrompterImage();
 
+    // updated seletcted Font
+    void onFontComboBoxChanged(const QFont& font);
+
 
 private:
     Ui::Prompter *ui;
