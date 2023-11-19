@@ -250,8 +250,19 @@ void Prompter::on_pushButtonTest_clicked()
         ui->openGLWidget->showFullScreen();
         */
 
+        ui->textEdit->hide();
+        ui->labelLink->hide();
+        ui->groupBoxAlignment->hide();
+
+        // enter fullscreen for main window
+        QMainWindow::setWindowFlags(Qt::FramelessWindowHint);
+        QMainWindow::showFullScreen();
+
         // set openGLWidget to full main window size (not full-Screen)
         ui->openGLWidget->setGeometry(1, 1, ui->centralwidget->width(), ui->centralwidget->height());
+
+        // start scrolling
+        emit on_pushButtonScroll_clicked();
     }
     else
     {
@@ -260,8 +271,17 @@ void Prompter::on_pushButtonTest_clicked()
         ui->openGLWidget->show();
         */
 
+        // return from full screen
+        QMainWindow::showNormal();
+
+        // stop scrolling
+        emit on_pushButtonScroll_clicked();
+
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
+        ui->groupBoxAlignment->show();
+        ui->labelLink->show();
+        ui->textEdit->show();
     }
 
     updatePrompterImage();

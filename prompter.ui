@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1483</width>
+    <width>1470</width>
     <height>613</height>
    </rect>
   </property>
@@ -111,7 +111,7 @@
       <height>131</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayoutFontSize">
      <item>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="0">
@@ -226,7 +226,7 @@
       <height>121</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayoutSpeed">
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="0">
@@ -376,7 +376,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1483</width>
+     <width>1470</width>
      <height>24</height>
     </rect>
    </property>
