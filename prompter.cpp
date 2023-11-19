@@ -58,7 +58,8 @@ Prompter::Prompter(QWidget *parent)
     connect(ui->textEdit, SIGNAL(textChanged()), this, SLOT(updatePrompterImage()) );
 
     // update chosen font
-    connect(ui->fontComboBox, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxChanged(QFont)));
+    connect(ui->fontComboBoxTextEdit, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxTextEditChanged(QFont)));
+    connect(ui->fontComboBoxPrompter, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxPrompterChanged(QFont)));
 }
 
 
@@ -304,8 +305,15 @@ void Prompter::on_pushButtonFullScreen_clicked()
  */
 }
 
-void Prompter::onFontComboBoxChanged(const QFont& font)
+
+void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
 {
     // Do something with the selected font, for example, update a label
-    ui->label->setFont(font);
+    ui->textEdit->setFont(font);
+}
+
+
+void Prompter::onFontComboBoxPrompterChanged(const QFont& font)
+{
+    //ui->textEdit->setFont(font);
 }

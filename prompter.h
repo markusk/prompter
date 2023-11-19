@@ -50,7 +50,8 @@ private slots:
     void updatePrompterImage();
 
     // updated seletcted Font
-    void onFontComboBoxChanged(const QFont& font);
+    void onFontComboBoxTextEditChanged(const QFont& font);
+    void onFontComboBoxPrompterChanged(const QFont& font);
 
 
 private:
