@@ -258,7 +258,7 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->verticalSliderScrollSpeed->hide();
 
         // enter fullscreen for main window
-        QMainWindow::setWindowFlags(Qt::FramelessWindowHint);
+        //QMainWindow::setWindowFlags(Qt::FramelessWindowHint);
         QMainWindow::showFullScreen();
 
         // set openGLWidget to full main window size (not full-Screen)
