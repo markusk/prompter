@@ -77,7 +77,7 @@ void Prompter::paintEvent(QPaintEvent *event)
 }
 
 
-bool Prompter::updatePrompterImage()
+void Prompter::updatePrompterImage()
 {
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 

@@ -47,7 +47,7 @@ private slots:
     void scrollPrompter();
 
     // update openGL widget with mirrored prompter text
-    bool updatePrompterImage();
+    void updatePrompterImage();
 
 
 private:
