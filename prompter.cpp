@@ -103,7 +103,7 @@ void Prompter::updatePrompterImage()
     else
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter, ui->textEdit->toPlainText());
 
-    painter.end();
+//    painter.end();
 
     // mirror image horizontally
     if (ui->checkBoxMirror->isChecked())
