@@ -259,7 +259,7 @@ void Prompter::on_pushButtonTest_clicked()
         QMainWindow::showFullScreen();
 
         // set openGLWidget to full main window size (not full-Screen)
-        ui->openGLWidget->setGeometry(1, 1, ui->centralwidget->width(), ui->centralwidget->height());
+        ui->openGLWidget->setGeometry(0, 0, ui->centralwidget->width(), ui->centralwidget->height());
 
         // start scrolling
         emit on_pushButtonScroll_clicked();
