@@ -42,6 +42,12 @@ Prompter::Prompter(QWidget *parent)
     //height = screen->geometry().height();
     //width  = screen->geometry().width();
 
+    // store original position of the prompter widget (for later "full screen" mode)
+    prompterWidgetGeometryX = ui->openGLWidget->x();
+    prompterWidgetGeometryY = ui->openGLWidget->y();
+    prompterWidgetGeometryHeight = ui->openGLWidget->height();
+    prompterWidgetGeometryWidth = ui->openGLWidget->width();
+
     // create prompter image (with the max. size of the screen if we go full-screen)
 //    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
@@ -236,16 +242,26 @@ void Prompter::on_pushButtonTest_clicked()
 
     if (fullScreen)
     {
+        /*
         // mark widget as window to make it full-screen
         ui->openGLWidget->setWindowFlag(Qt::Window);
         // show it again! @sa https://doc.qt.io/qt-5/qwidget.html#windowFlags-prop
         ui->openGLWidget->show();
         ui->openGLWidget->showFullScreen();
+        */
+
+        // set openGLWidget to full main window size (not full-Screen)
+        ui->openGLWidget->setGeometry(1, 1, ui->centralwidget->width(), ui->centralwidget->height());
     }
     else
     {
+        /*
         ui->openGLWidget->setWindowFlag(Qt::Window, false);
         ui->openGLWidget->show();
+        */
+
+        // restore openGLWidget to size of pgm start
+        ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
     }
 
     updatePrompterImage();

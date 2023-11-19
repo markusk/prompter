@@ -56,6 +56,11 @@ private:
     int width;
     int height;
 
+    int prompterWidgetGeometryX;
+    int prompterWidgetGeometryY;
+    int prompterWidgetGeometryWidth;
+    int prompterWidgetGeometryHeight;
+
     // new for OpenGL drawing
     QFont textFont;
     QPen textPen;
