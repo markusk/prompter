@@ -300,6 +300,10 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->spinBoxFontSizeTextEdit->hide();
         ui->spinBoxFontSizePrompter->hide();
         ui->dialScrollSpeed->hide();
+        ui->pushButtonScroll->hide();
+        ui->pushButtonReset->hide();
+        ui->pushButtonFullScreen->hide();
+        ui->pushButtonExit->hide();
 
         // enter fullscreen for main window
         QMainWindow::showFullScreen();
@@ -323,6 +327,10 @@ void Prompter::on_pushButtonFullScreen_clicked()
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
 
+        ui->pushButtonExit->show();
+        ui->pushButtonFullScreen->show();
+        ui->pushButtonReset->show();
+        ui->pushButtonScroll->show();
         ui->dialScrollSpeed->show();
         ui->spinBoxFontSizePrompter->show();
         ui->spinBoxFontSizeTextEdit->show();
@@ -356,12 +364,12 @@ void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
 void Prompter::keyPressEvent(QKeyEvent *event)
 {
     // CMD+X (Win: ctrl+x)
-    if (event->key() == Qt::Key_X && event->modifiers() == Qt::ControlModifier)
-    {
-        QApplication::exit(0);
-    }
-    else
-    {
+//    if (event->key() == Qt::Key_X && event->modifiers() == Qt::ControlModifier)
+//    {
+//        QApplication::exit(0);
+//    }
+//    else
+//    {
         if (event->key() == Qt::Key_Escape)
         {
             // do the same as if the "full screen" button would be pushed again
@@ -372,5 +380,5 @@ void Prompter::keyPressEvent(QKeyEvent *event)
             // Call the base class implementation for other key events
             QMainWindow::keyPressEvent(event);
         }
-    }
+//    }
 }
