@@ -73,6 +73,10 @@ Prompter::Prompter(QWidget *parent)
     // update chosen font
     connect(ui->fontComboBoxTextEdit, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxTextEditChanged(QFont)));
     connect(ui->fontComboBoxPrompter, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxPrompterChanged(QFont)));
+
+    //
+    connect(ui->fontComboBoxTextEdit,     SIGNAL(currentFontChanged(const QFont&)), this, SLOT(updateTextEditFont()));
+    connect(ui->spinBoxFontSizeTextEdit,  SIGNAL(valueChanged(int)),                this, SLOT(updateTextEditFont()));
 }
 
 
@@ -203,17 +207,19 @@ void Prompter::on_verticalSliderFontSize_valueChanged()
 
 void Prompter::on_spinBoxFontSizeTextEdit_valueChanged(int size)
 {
-    fontSizeTextEdit = size;
-/*
-    textEditFont = QFont(ui->fontComboBoxTextEdit->font(), fontSizeTextEdit);
+}
 
-    // set GUI to values from here
-    ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
-    ui->spinBoxFontSizeTextEdit->setValue(fontSizeTextEdit);
+void Prompter::updateTextEditFont()
+{
+    fontSizeTextEdit = ui->spinBoxFontSizeTextEdit->value();
 
-    // set fonts in editor and promnpter
-    ui->textEdit->setFont(textEditFont);
-*/
+    QString fontFamily = ui->fontComboBoxTextEdit->currentFont().family();
+
+    // Create a new font with the selected size and family
+    QFont newFont(fontFamily, fontSizeTextEdit);
+
+    // Set the font for the text edit
+    ui->textEdit->setFont(newFont);
 }
 
 

@@ -55,6 +55,8 @@ private slots:
     void onFontComboBoxTextEditChanged(const QFont& font);
     void onFontComboBoxPrompterChanged(const QFont& font);
 
+    void updateTextEditFont();
+
 
 private:
     Ui::Prompter *ui;
