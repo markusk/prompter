@@ -412,25 +412,41 @@
      <string>Preview</string>
     </property>
    </widget>
-   <widget class="QFontComboBox" name="fontComboBoxTextEdit">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>480</y>
-      <width>247</width>
+      <width>291</width>
       <height>32</height>
      </rect>
     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QFontComboBox" name="fontComboBoxTextEdit"/>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBoxFontSizeTextedit"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QFontComboBox" name="fontComboBoxPrompter">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>640</x>
       <y>480</y>
-      <width>247</width>
+      <width>291</width>
       <height>32</height>
      </rect>
     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QFontComboBox" name="fontComboBoxPrompter"/>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBoxFontSizePrompter"/>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
