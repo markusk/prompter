@@ -295,15 +295,17 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
         ui->groupBoxWarpMirror->hide();
+        ui->groupBoxScrollSpeed->hide();
         ui->fontComboBoxTextEdit->hide();
         ui->fontComboBoxPrompter->hide();
         ui->spinBoxFontSizeTextEdit->hide();
         ui->spinBoxFontSizePrompter->hide();
-        ui->dialScrollSpeed->hide();
         ui->pushButtonScroll->hide();
         ui->pushButtonReset->hide();
         ui->pushButtonFullScreen->hide();
         ui->pushButtonExit->hide();
+        ui->labelText->hide();
+        ui->labelPreview->hide();
 
         // Set the cursor to a blank cursor (hide it)
         setCursor(Qt::BlankCursor);
@@ -333,15 +335,18 @@ void Prompter::on_pushButtonFullScreen_clicked()
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
 
+        ui->labelPreview->show();
+        ui->labelText->show();
         ui->pushButtonExit->show();
         ui->pushButtonFullScreen->show();
         ui->pushButtonReset->show();
         ui->pushButtonScroll->show();
-        ui->dialScrollSpeed->show();
+//        ui->dialScrollSpeed->show();
         ui->spinBoxFontSizePrompter->show();
         ui->spinBoxFontSizeTextEdit->show();
         ui->fontComboBoxPrompter->show();
         ui->fontComboBoxTextEdit->show();
+        ui->groupBoxScrollSpeed->show();
         ui->groupBoxWarpMirror->show();
         ui->groupBoxAlignment->show();
         ui->labelLink->show();
