@@ -355,13 +355,22 @@ void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
 
 void Prompter::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_Escape)
+    // CMD+X (Win: ctrl+x)
+    if (event->key() == Qt::Key_X && event->modifiers() == Qt::ControlModifier)
     {
-        // do the same as if the "full screen" button would be pushed again
-        on_pushButtonFullScreen_clicked();
-    } else
+        QApplication::exit(0);
+    }
+    else
     {
-        // Call the base class implementation for other key events
-        QMainWindow::keyPressEvent(event);
+        if (event->key() == Qt::Key_Escape)
+        {
+            // do the same as if the "full screen" button would be pushed again
+            on_pushButtonFullScreen_clicked();
+        }
+        else
+        {
+            // Call the base class implementation for other key events
+            QMainWindow::keyPressEvent(event);
+        }
     }
 }
