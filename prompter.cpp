@@ -293,7 +293,7 @@ void Prompter::on_pushButtonFullScreen_clicked()
         */
 
         // start scrolling
-        emit on_pushButtonScroll_clicked();
+        on_pushButtonScroll_clicked();
 
         ui->textEdit->hide();
         ui->labelLink->hide();
@@ -320,7 +320,7 @@ void Prompter::on_pushButtonFullScreen_clicked()
         QMainWindow::showNormal();
 
         // stop scrolling
-        emit on_pushButtonScroll_clicked();
+        on_pushButtonScroll_clicked();
 
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
