@@ -67,6 +67,7 @@ private:
 
     // new for OpenGL drawing
     QFont prompterFont;
+    QFont textEditFont;
     QPen textPen;
 
 

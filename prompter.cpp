@@ -27,8 +27,13 @@ Prompter::Prompter(QWidget *parent)
 
     // get font size from slider value
     fontSize = ui->verticalSliderFontSize->value();
-    prompterFont.setPixelSize(fontSize);
-//    prompterFont.setFamily()
+
+    // set default fonts
+    textEditFont = QFont("Arial", fontSize);
+    prompterFont = QFont("Arial", fontSize);
+
+    ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
+    ui->fontComboBoxPrompter->setCurrentFont(textEditFont);
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
