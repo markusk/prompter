@@ -357,8 +357,8 @@ void Prompter::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape)
     {
-        // Handle the Esc key press event here
-        qDebug() << "Escape key pressed!";
+        // do the same as if the "full screen" button would be pushed again
+        on_pushButtonFullScreen_clicked();
     } else
     {
         // Call the base class implementation for other key events
