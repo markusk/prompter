@@ -302,6 +302,8 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->verticalSliderScrollSpeed->hide();
         ui->fontComboBoxTextEdit->hide();
         ui->fontComboBoxPrompter->hide();
+        ui->spinBoxFontSizeTextEdit->hide();
+        ui->spinBoxFontSizePrompter->hide();
 
         // enter fullscreen for main window
         QMainWindow::showFullScreen();
@@ -325,6 +327,8 @@ void Prompter::on_pushButtonFullScreen_clicked()
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
 
+        ui->spinBoxFontSizePrompter->show();
+        ui->spinBoxFontSizeTextEdit->show();
         ui->fontComboBoxPrompter->show();
         ui->fontComboBoxTextEdit->show();
         ui->verticalSliderScrollSpeed->show();
