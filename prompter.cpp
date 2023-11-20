@@ -42,20 +42,11 @@ Prompter::Prompter(QWidget *parent)
     // add example text to text Edit
     ui->textEdit->setText("A long time ago in a galaxy far, far away....");
 
-    // get current screen resolution
-    QScreen *screen = qApp->screens().at(0);
-    qDebug() << screen->geometry() << screen->physicalSize() << screen->physicalDotsPerInch();
-    //height = screen->geometry().height();
-    //width  = screen->geometry().width();
-
     // store original position of the prompter widget (for later "full screen" mode)
     prompterWidgetGeometryX = ui->openGLWidget->x();
     prompterWidgetGeometryY = ui->openGLWidget->y();
     prompterWidgetGeometryHeight = ui->openGLWidget->height();
     prompterWidgetGeometryWidth = ui->openGLWidget->width();
-
-    // create prompter image (with the max. size of the screen if we go full-screen)
-//    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     // create prompter text with given fonts and sizes NOW
     updatePrompterImage();
@@ -64,7 +55,6 @@ Prompter::Prompter(QWidget *parent)
     connect(ui->textEdit, SIGNAL(textChanged()), this, SLOT(updatePrompterImage()) );
 
     // update promoter font
-//    connect(ui->fontComboBoxTextEdit, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxTextEditChanged(QFont)));
     connect(ui->fontComboBoxPrompter, SIGNAL(currentFontChanged(QFont)), this, SLOT(updatePrompterImage()));
 
     // update textEdit field to chosen font type and size
@@ -81,10 +71,6 @@ Prompter::~Prompter()
 
 void Prompter::paintEvent(QPaintEvent *event)
 {
-    /// added for fullscreen test, does not help at all
-    // updating QImage with content etc...
-    //updatePrompterImage();
-
     // show image in openGL widget
     QPainter painter;
 
@@ -96,8 +82,6 @@ void Prompter::paintEvent(QPaintEvent *event)
     painter.drawImage( QPoint(1, scrollValueY), imagePrompterText);
 
     painter.end();
-
-    //qDebug() << "PaintEvent!  OpenGL widget size is " << ui->openGLWidget->width() << "x" << ui->openGLWidget->height();
 }
 
 
@@ -110,8 +94,6 @@ void Prompter::updatePrompterImage()
     imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
     QPainter painter(&imagePrompterText);
-
-    //painter.begin(ui->openGLWidget);
 
     // erase area inside the rectangle    
     painter.eraseRect(0,0, width, height);
@@ -135,16 +117,12 @@ void Prompter::updatePrompterImage()
     else
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter,                  ui->textEdit->toPlainText());
 
-//    painter.end();
-
     // mirror image horizontally
     if (ui->checkBoxMirror->isChecked())
         imagePrompterText.mirror(true, false);
 
     // update GUI
     update();
-
-    //qDebug() << "updatePrompterImage update called...";
 }
 
 
@@ -274,20 +252,11 @@ void Prompter::on_pushButtonFullScreen_clicked()
     //qDebug("Test button clicked");
     static bool fullScreen = false;
 
-
     // toggle
     fullScreen = !fullScreen;
 
     if (fullScreen)
     {
-        /*
-        // mark widget as window to make it full-screen
-        ui->openGLWidget->setWindowFlag(Qt::Window);
-        // show it again! @sa https://doc.qt.io/qt-5/qwidget.html#windowFlags-prop
-        ui->openGLWidget->show();
-        ui->openGLWidget->showFullScreen();
-        */
-
         // start scrolling
         on_pushButtonScroll_clicked();
 
@@ -318,11 +287,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
     }
     else
     {
-        /*
-        ui->openGLWidget->setWindowFlag(Qt::Window, false);
-        ui->openGLWidget->show();
-        */
-
         // return from full screen
         QMainWindow::showNormal();
 
@@ -341,7 +305,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->pushButtonFullScreen->show();
         ui->pushButtonReset->show();
         ui->pushButtonScroll->show();
-//        ui->dialScrollSpeed->show();
         ui->spinBoxFontSizePrompter->show();
         ui->spinBoxFontSizeTextEdit->show();
         ui->fontComboBoxPrompter->show();
@@ -354,14 +317,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
     }
 
     updatePrompterImage();
-
-/*
-    QMessageBox msgBox;
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setText("prompter");
-    msgBox.setInformativeText("https://github.com/markusk/prompter");
-    msgBox.exec();
- */
 }
 
 
