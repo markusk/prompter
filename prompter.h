@@ -7,6 +7,7 @@
 #include <QDir>
 #include <QObject> // for connecting signals and slots
 #include <QTimer>  // for scroll animation
+#include <QKeyEvent> // for catching the esc key when in full screen mode
 
 #include <QBrush>
 #include <QFont>
@@ -29,6 +30,9 @@ public:
     Prompter(QWidget *parent = nullptr);
     ~Prompter();
     void paintEvent(QPaintEvent *event);
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
     void on_pushButtonScroll_clicked();

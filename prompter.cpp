@@ -351,3 +351,17 @@ void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
     // Do something with the selected font, for example, update a label
     ui->textEdit->setFont(font);
 }
+
+
+void Prompter::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape)
+    {
+        // Handle the Esc key press event here
+        qDebug() << "Escape key pressed!";
+    } else
+    {
+        // Call the base class implementation for other key events
+        QMainWindow::keyPressEvent(event);
+    }
+}
