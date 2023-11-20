@@ -22,9 +22,6 @@ Prompter::Prompter(QWidget *parent)
     // start GUI
     ui->setupUi(this);
 
-    // get scroll speed from slider value
-    scrollSpeed = ui->verticalSliderScrollSpeed->value();
-
     // set default fonts for GUI
     textEditFont = QFont("Arial", fontSizeTextEdit);
 
@@ -170,7 +167,7 @@ void Prompter::on_pushButtonScroll_clicked()
         // update image
         updatePrompterImage();
 
-        timer->start(scrollSpeed);
+        timer->start(ui->dialScrollSpeed->value());
         ui->pushButtonScroll->setText("Stop");
     }
 }
@@ -191,11 +188,10 @@ void Prompter::on_pushButtonExit_clicked()
 }
 
 
-void Prompter::on_verticalSliderScrollSpeed_valueChanged()
+void Prompter::on_dialScrollSpeed_valueChanged(int value)
 {
-    scrollSpeed = ui->verticalSliderScrollSpeed->value();
-    ui->labelScrollSpeed->setNum(scrollSpeed);
-    timer->setInterval(scrollSpeed);
+    ui->labelScrollSpeed->setNum(value);
+    timer->setInterval(value);
 }
 
 
@@ -220,7 +216,7 @@ void Prompter::updatePrompterFont()
 }
 
 
-void Prompter::on_spinBoxFontSizePrompter_valueChanged(int size)
+void Prompter::on_spinBoxFontSizePrompter_valueChanged()
 {
     updatePrompterImage();
 }
@@ -299,7 +295,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
         ui->groupBoxWarpMirror->hide();
-        ui->verticalSliderScrollSpeed->hide();
         ui->fontComboBoxTextEdit->hide();
         ui->fontComboBoxPrompter->hide();
         ui->spinBoxFontSizeTextEdit->hide();
@@ -331,7 +326,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->spinBoxFontSizeTextEdit->show();
         ui->fontComboBoxPrompter->show();
         ui->fontComboBoxTextEdit->show();
-        ui->verticalSliderScrollSpeed->show();
         ui->groupBoxWarpMirror->show();
         ui->groupBoxAlignment->show();
         ui->labelLink->show();

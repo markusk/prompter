@@ -38,14 +38,14 @@ private slots:
     void on_pushButtonScroll_clicked();
     void on_pushButtonReset_clicked();
     void on_pushButtonExit_clicked();
-    void on_verticalSliderScrollSpeed_valueChanged();
+    void on_dialScrollSpeed_valueChanged(int value);
     void on_radioButtonLeft_clicked();
     void on_radioButtonCentered_clicked();
     void on_radioButtonRight_clicked();
     void on_checkBoxWordWrap_stateChanged();
     void on_checkBoxMirror_stateChanged();
     void on_pushButtonFullScreen_clicked();
-    void on_spinBoxFontSizePrompter_valueChanged(int size);
+    void on_spinBoxFontSizePrompter_valueChanged();
 
     // let the prompter text scroll
     void scrollPrompter();
@@ -81,7 +81,6 @@ private:
 
     QImage imagePrompterText;
     int scrollValueY;
-    int scrollSpeed;
     int textDirection;
     QColor textColor;
     QColor backgroundColor;
