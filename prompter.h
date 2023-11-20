@@ -42,6 +42,8 @@ private slots:
     void on_checkBoxWordWrap_stateChanged();
     void on_checkBoxMirror_stateChanged();
     void on_pushButtonFullScreen_clicked();
+    void on_spinBoxFontSizeTextEdit_valueChanged(int size);
+    void on_spinBoxFontSizePrompter_valueChanged(int size);
 
     // let the prompter text scroll
     void scrollPrompter();
@@ -66,9 +68,10 @@ private:
     int prompterWidgetGeometryHeight;
 
     // new for OpenGL drawing
-    QFont prompterFont;
     QFont textEditFont;
-    int fontSizePrompter;
+    QFont prompterFont;
+    int fontSizeTextEdit = 12;
+    int fontSizePrompter = 50;
     QPen textPen;
 
 

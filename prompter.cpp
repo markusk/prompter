@@ -29,11 +29,14 @@ Prompter::Prompter(QWidget *parent)
     fontSizePrompter = ui->verticalSliderFontSize->value();
 
     // set default fonts
-    textEditFont = QFont("Arial", fontSizePrompter);
+    textEditFont = QFont("Arial", fontSizeTextEdit);
     prompterFont = QFont("Arial", fontSizePrompter);
 
+    // set GUI to values from here
     ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
     ui->fontComboBoxPrompter->setCurrentFont(textEditFont);
+    ui->spinBoxFontSizeTextEdit->setValue(fontSizeTextEdit);
+    ui->spinBoxFontSizePrompter->setValue(fontSizePrompter);
 
     // set fonts in editor and promnpter
     ui->textEdit->setFont(textEditFont);
@@ -192,6 +195,35 @@ void Prompter::on_verticalSliderFontSize_valueChanged()
 {
     fontSizePrompter = ui->verticalSliderFontSize->value();
     ui->labelFontSize->setNum(fontSizePrompter);
+
+    // update image
+    updatePrompterImage();
+}
+
+
+void Prompter::on_spinBoxFontSizeTextEdit_valueChanged(int size)
+{
+    fontSizeTextEdit = size;
+/*
+    textEditFont = QFont(ui->fontComboBoxTextEdit->font(), fontSizeTextEdit);
+
+    // set GUI to values from here
+    ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
+    ui->spinBoxFontSizeTextEdit->setValue(fontSizeTextEdit);
+
+    // set fonts in editor and promnpter
+    ui->textEdit->setFont(textEditFont);
+*/
+}
+
+
+void Prompter::on_spinBoxFontSizePrompter_valueChanged(int size)
+{
+    fontSizePrompter = size;
+    prompterFont = QFont("Arial", fontSizePrompter);
+
+    // set fonts in editor and promnpter
+    ui->openGLWidget->setFont(prompterFont);
 
     // update image
     updatePrompterImage();

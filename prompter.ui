@@ -412,7 +412,7 @@
      <string>Preview</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -426,11 +426,11 @@
       <widget class="QFontComboBox" name="fontComboBoxTextEdit"/>
      </item>
      <item>
-      <widget class="QSpinBox" name="spinBoxFontSizeTextedit"/>
+      <widget class="QSpinBox" name="spinBoxFontSizeTextEdit"/>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>640</x>
