@@ -68,6 +68,7 @@ private:
     // new for OpenGL drawing
     QFont prompterFont;
     QFont textEditFont;
+    int fontSizePrompter;
     QPen textPen;
 
 
@@ -75,7 +76,6 @@ private:
     int scrollValueY;
     int scrollSpeed;
     int textDirection;
-    int fontSize;
     QColor textColor;
     QColor backgroundColor;
 

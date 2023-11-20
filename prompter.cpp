@@ -26,14 +26,18 @@ Prompter::Prompter(QWidget *parent)
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
 
     // get font size from slider value
-    fontSize = ui->verticalSliderFontSize->value();
+    fontSizePrompter = ui->verticalSliderFontSize->value();
 
     // set default fonts
-    textEditFont = QFont("Arial", fontSize);
-    prompterFont = QFont("Arial", fontSize);
+    textEditFont = QFont("Arial", fontSizePrompter);
+    prompterFont = QFont("Arial", fontSizePrompter);
 
     ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
     ui->fontComboBoxPrompter->setCurrentFont(textEditFont);
+
+    // set fonts in editor and promnpter
+    ui->textEdit->setFont(textEditFont);
+    ui->openGLWidget->setFont(prompterFont);
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
@@ -114,7 +118,7 @@ void Prompter::updatePrompterImage()
     painter.fillRect(0,0,width, height, backgroundColor);
 
     // use font size (if changed on slider, @sa on_verticalSliderFontSize_valueChanged slot)
-    prompterFont.setPixelSize(fontSize);
+    prompterFont.setPixelSize(fontSizePrompter);
     painter.setPen(textPen);
     painter.setFont(prompterFont);
 
@@ -186,8 +190,8 @@ void Prompter::on_verticalSliderScrollSpeed_valueChanged()
 
 void Prompter::on_verticalSliderFontSize_valueChanged()
 {
-    fontSize = ui->verticalSliderFontSize->value();
-    ui->labelFontSize->setNum(fontSize);
+    fontSizePrompter = ui->verticalSliderFontSize->value();
+    ui->labelFontSize->setNum(fontSizePrompter);
 
     // update image
     updatePrompterImage();
