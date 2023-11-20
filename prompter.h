@@ -8,6 +8,7 @@
 #include <QObject> // for connecting signals and slots
 #include <QTimer>  // for scroll animation
 #include <QKeyEvent> // for catching the esc key when in full screen mode
+#include <QCursor> // for hiding mouse cursor in full screen mode
 
 #include <QBrush>
 #include <QFont>

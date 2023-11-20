@@ -305,6 +305,9 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->pushButtonFullScreen->hide();
         ui->pushButtonExit->hide();
 
+        // Set the cursor to a blank cursor (hide it)
+        setCursor(Qt::BlankCursor);
+
         // enter fullscreen for main window
         QMainWindow::showFullScreen();
 
@@ -320,6 +323,9 @@ void Prompter::on_pushButtonFullScreen_clicked()
 
         // return from full screen
         QMainWindow::showNormal();
+
+        // Set the cursor to a normal cursor (show it)
+        unsetCursor();
 
         // stop scrolling
         on_pushButtonScroll_clicked();
