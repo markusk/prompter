@@ -40,7 +40,7 @@ Prompter::Prompter(QWidget *parent)
     height = ui->openGLWidget->height();
 
     // add example text to text Edit
-    ui->textEdit->setText("Hello world...");
+    ui->textEdit->setText("A long time ago in a galaxy far, far away....");
 
     // get current screen resolution
     QScreen *screen = qApp->screens().at(0);

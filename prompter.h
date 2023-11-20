@@ -75,8 +75,8 @@ private:
     // new for OpenGL drawing
     QFont textEditFont;
     QFont prompterFont = QFont("Arial");
-    int fontSizeTextEdit = 12;
-    int fontSizePrompter = 50;
+    int fontSizeTextEdit = 14;
+    int fontSizePrompter = 44;
     QPen textPen;
 
 
