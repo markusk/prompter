@@ -35,7 +35,6 @@ private slots:
     void on_pushButtonReset_clicked();
     void on_pushButtonExit_clicked();
     void on_verticalSliderScrollSpeed_valueChanged();
-    void on_verticalSliderFontSize_valueChanged();
     void on_radioButtonLeft_clicked();
     void on_radioButtonCentered_clicked();
     void on_radioButtonRight_clicked();
@@ -50,9 +49,8 @@ private slots:
     // update openGL widget with mirrored prompter text
     void updatePrompterImage();
 
-    // updated seletcted Font
+    // updated seletcted font
     void onFontComboBoxTextEditChanged(const QFont& font);
-    void onFontComboBoxPrompterChanged(const QFont& font);
 
     void updateTextEditFont();
     void updatePrompterFont();
@@ -71,7 +69,7 @@ private:
 
     // new for OpenGL drawing
     QFont textEditFont;
-    QFont prompterFont;
+    QFont prompterFont = QFont("Arial");
     int fontSizeTextEdit = 12;
     int fontSizePrompter = 50;
     QPen textPen;

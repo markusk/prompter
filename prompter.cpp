@@ -25,22 +25,18 @@ Prompter::Prompter(QWidget *parent)
     // get scroll speed from slider value
     scrollSpeed = ui->verticalSliderScrollSpeed->value();
 
-    // get font size from slider value
-    fontSizePrompter = ui->verticalSliderFontSize->value();
-
-    // set default fonts
+    // set default fonts for GUI
     textEditFont = QFont("Arial", fontSizeTextEdit);
-    prompterFont = QFont("Arial", fontSizePrompter);
 
     // set GUI to values from here
     ui->fontComboBoxTextEdit->setCurrentFont(textEditFont);
-    ui->fontComboBoxPrompter->setCurrentFont(textEditFont);
+    ui->fontComboBoxPrompter->setCurrentFont(prompterFont);
+
     ui->spinBoxFontSizeTextEdit->setValue(fontSizeTextEdit);
     ui->spinBoxFontSizePrompter->setValue(fontSizePrompter);
 
     // set fonts in editor and promnpter
     ui->textEdit->setFont(textEditFont);
-    ui->openGLWidget->setFont(prompterFont);
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
@@ -64,17 +60,17 @@ Prompter::Prompter(QWidget *parent)
     // create prompter image (with the max. size of the screen if we go full-screen)
 //    imagePrompterText = QImage(QSize(width, height),QImage::Format_RGB32);
 
-    // create prompter text
+    // create prompter text with given fonts and sizes NOW
     updatePrompterImage();
 
     // update prompter text live, when text field changes
     connect(ui->textEdit, SIGNAL(textChanged()), this, SLOT(updatePrompterImage()) );
 
-    // update chosen font
-    connect(ui->fontComboBoxTextEdit, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxTextEditChanged(QFont)));
-    connect(ui->fontComboBoxPrompter, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxPrompterChanged(QFont)));
+    // update promoter font
+//    connect(ui->fontComboBoxTextEdit, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontComboBoxTextEditChanged(QFont)));
+    connect(ui->fontComboBoxPrompter, SIGNAL(currentFontChanged(QFont)), this, SLOT(updatePrompterImage()));
 
-    //
+    // update textEdit field to chosen font type and size
     connect(ui->fontComboBoxTextEdit,     SIGNAL(currentFontChanged(const QFont&)), this, SLOT(updateTextEditFont()));
     connect(ui->spinBoxFontSizeTextEdit,  SIGNAL(valueChanged(int)),                this, SLOT(updateTextEditFont()));
 }
@@ -203,11 +199,6 @@ void Prompter::on_verticalSliderScrollSpeed_valueChanged()
 }
 
 
-void Prompter::on_verticalSliderFontSize_valueChanged()
-{
-}
-
-
 void Prompter::updateTextEditFont()
 {
     fontSizeTextEdit = ui->spinBoxFontSizeTextEdit->value();
@@ -224,18 +215,6 @@ void Prompter::updateTextEditFont()
 
 void Prompter::updatePrompterFont()
 {
-    fontSizePrompter = ui->spinBoxFontSizePrompter->value();
-
-    QString fontFamily = ui->fontComboBoxPrompter->currentFont().family();
-
-    // Create a new font with the selected size and family
-    QFont newFont(fontFamily, fontSizePrompter);
-
-    // set local var
-    prompterFont = newFont;
-    // set fonts in editor and promnpter
-    ui->openGLWidget->setFont(prompterFont);
-
     // Set the font
     updatePrompterImage();
 }
@@ -320,7 +299,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->labelLink->hide();
         ui->groupBoxAlignment->hide();
         ui->groupBoxWarpMirror->hide();
-        ui->verticalSliderFontSize->hide();
         ui->verticalSliderScrollSpeed->hide();
         ui->fontComboBoxTextEdit->hide();
         ui->fontComboBoxPrompter->hide();
@@ -350,7 +328,6 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->fontComboBoxPrompter->show();
         ui->fontComboBoxTextEdit->show();
         ui->verticalSliderScrollSpeed->show();
-        ui->verticalSliderFontSize->show();
         ui->groupBoxWarpMirror->show();
         ui->groupBoxAlignment->show();
         ui->labelLink->show();
@@ -373,10 +350,4 @@ void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
 {
     // Do something with the selected font, for example, update a label
     ui->textEdit->setFont(font);
-}
-
-
-void Prompter::onFontComboBoxPrompterChanged(const QFont& font)
-{
-    updatePrompterImage();
 }
