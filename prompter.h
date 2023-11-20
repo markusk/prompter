@@ -42,7 +42,6 @@ private slots:
     void on_checkBoxWordWrap_stateChanged();
     void on_checkBoxMirror_stateChanged();
     void on_pushButtonFullScreen_clicked();
-    void on_spinBoxFontSizeTextEdit_valueChanged(int size);
     void on_spinBoxFontSizePrompter_valueChanged(int size);
 
     // let the prompter text scroll
@@ -56,6 +55,7 @@ private slots:
     void onFontComboBoxPrompterChanged(const QFont& font);
 
     void updateTextEditFont();
+    void updatePrompterFont();
 
 
 private:

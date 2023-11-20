@@ -124,10 +124,18 @@ void Prompter::updatePrompterImage()
     painter.eraseRect(0,0, width, height);
     painter.fillRect(0,0,width, height, backgroundColor);
 
-    // use font size (if changed on slider, @sa on_verticalSliderFontSize_valueChanged slot)
-    prompterFont.setPixelSize(fontSizePrompter);
+    // get font from combo box
+    QString fontFamily = ui->fontComboBoxPrompter->currentFont().family();
+
+    // Create a new font with the selected size and family
+    QFont newFont(fontFamily, ui->spinBoxFontSizePrompter->value());
+
+    // set local var
+    prompterFont = newFont;
+
+    // change painter font
     painter.setPen(textPen);
-    painter.setFont(prompterFont);
+    painter.setFont(newFont);
 
     if (ui->checkBoxWordWrap->isChecked())
         painter.drawText(QRect(0, 0, width, height), textDirection|Qt::AlignVCenter|Qt::TextWordWrap, ui->textEdit->toPlainText());
@@ -197,17 +205,8 @@ void Prompter::on_verticalSliderScrollSpeed_valueChanged()
 
 void Prompter::on_verticalSliderFontSize_valueChanged()
 {
-    fontSizePrompter = ui->verticalSliderFontSize->value();
-    ui->labelFontSize->setNum(fontSizePrompter);
-
-    // update image
-    updatePrompterImage();
 }
 
-
-void Prompter::on_spinBoxFontSizeTextEdit_valueChanged(int size)
-{
-}
 
 void Prompter::updateTextEditFont()
 {
@@ -223,15 +222,27 @@ void Prompter::updateTextEditFont()
 }
 
 
-void Prompter::on_spinBoxFontSizePrompter_valueChanged(int size)
+void Prompter::updatePrompterFont()
 {
-    fontSizePrompter = size;
-    prompterFont = QFont("Arial", fontSizePrompter);
+    fontSizePrompter = ui->spinBoxFontSizePrompter->value();
 
+    QString fontFamily = ui->fontComboBoxPrompter->currentFont().family();
+
+    // Create a new font with the selected size and family
+    QFont newFont(fontFamily, fontSizePrompter);
+
+    // set local var
+    prompterFont = newFont;
     // set fonts in editor and promnpter
     ui->openGLWidget->setFont(prompterFont);
 
-    // update image
+    // Set the font
+    updatePrompterImage();
+}
+
+
+void Prompter::on_spinBoxFontSizePrompter_valueChanged(int size)
+{
     updatePrompterImage();
 }
 
@@ -367,5 +378,5 @@ void Prompter::onFontComboBoxTextEditChanged(const QFont& font)
 
 void Prompter::onFontComboBoxPrompterChanged(const QFont& font)
 {
-    //ui->textEdit->setFont(font);
+    updatePrompterImage();
 }
