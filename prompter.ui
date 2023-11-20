@@ -107,6 +107,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>CMD+F</string>
+    </property>
     <property name="text">
      <string>&amp;Full Screen</string>
     </property>
