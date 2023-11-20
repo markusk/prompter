@@ -28,6 +28,7 @@ Prompter::Prompter(QWidget *parent)
     // get font size from slider value
     fontSize = ui->verticalSliderFontSize->value();
     prompterFont.setPixelSize(fontSize);
+//    prompterFont.setFamily()
 
     // get prompter widget size for the QImage
     width = ui->openGLWidget->width();
@@ -263,6 +264,8 @@ void Prompter::on_pushButtonFullScreen_clicked()
         ui->groupBoxWarpMirror->hide();
         ui->verticalSliderFontSize->hide();
         ui->verticalSliderScrollSpeed->hide();
+        ui->fontComboBoxTextEdit->hide();
+        ui->fontComboBoxPrompter->hide();
 
         // enter fullscreen for main window
         QMainWindow::showFullScreen();
@@ -286,6 +289,8 @@ void Prompter::on_pushButtonFullScreen_clicked()
         // restore openGLWidget to size of pgm start
         ui->openGLWidget->setGeometry(prompterWidgetGeometryX, prompterWidgetGeometryY, prompterWidgetGeometryWidth , prompterWidgetGeometryHeight);
 
+        ui->fontComboBoxPrompter->show();
+        ui->fontComboBoxTextEdit->show();
         ui->verticalSliderScrollSpeed->show();
         ui->verticalSliderFontSize->show();
         ui->groupBoxWarpMirror->show();
